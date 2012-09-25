@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="sumarios" default="compile">
+
+	<property name="app.version" value="0.1"/>
+	<property name="app.name" value="e-goi-wrapper-java"/>
+
+	<property name="project.dir" value="."/>
+	<property name="src.dir" value="${project.dir}/src"/>
+	<property name="axis.src.dir" value="${project.dir}/src-axis"/>
+	<property name="bin.dir" value="${project.dir}/bin"/>
+	<property name="lib.dir" value="${project.dir}/lib"/>
+	<property name="dist.dir" value="${project.dir}/dist" />
+	<property name="dist.tar" value="${app.name}-${app.version}.tar.bz" />
+	<property name="includeantruntime" value="true"/>
+	
+	<target name="clean">
+		<delete dir="${lib.dir}" /><!-- ivy files -->
+	</target>
+	
+	<target name="resolve" description="--> retrieve dependencies with ivy">
+		<ivy:retrieve conf="dev,deploy,ant" pattern="${lib.dir}/[conf]/[artifact]-[revision](-[classifier]).[ext]" />
+	</target>
+	
+	<target name="compile" depends="resolve">
+		<mkdir dir="${bin.dir}" />
+		
+		<javac includeantruntime="${includeantruntime}" srcdir="src" destdir="${bin.dir}" source="1.6" target="1.6" debug="on">
+			<classpath>
+				<fileset dir="${lib.dir}" />
+			</classpath>
+		</javac>
+	</target>
+
+	<path id="ant.class.path">
+		<fileset dir="${lib.dir}/ant">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<taskdef name="wsdl2java" classpathref="ant.class.path" classname="org.apache.axis.tools.ant.wsdl.Wsdl2javaAntTask" />
+	
+	<target name="wsdl2java" depends="resolve">
+		<mkdir dir="${axis.src.dir}" />
+		<wsdl2java verbose="true" output="${axis.src.dir}/" url="http://api.e-goi.com/v2/soap.php?wsdl" deployScope="Session">
+			<mapping package="com.egoi.api.soap" namespace="http://api.e-goi.com/v2/soap.php" name="Foo" />
+		</wsdl2java>
+	</target>
+
+	<!-- =============================================================================== -->
+	<!-- == Wrapper Stuff ============================================================== -->
+	<!-- =============================================================================== -->
+	
+	<target name="dist">
+		
+		<!-- /bin -->
+		<copy todir="${dist.dir}/bin">
+			<fileset dir="${project.dir}/bin"/>
+		</copy>
+		<chmod perm="755" file="${dist.dir}/bin/${app.name}" />
+		
+		<!-- /contexts -->
+		<copy todir="${dist.dir}/contexts">
+			<fileset dir="${wrapper.dir}/contexts"/>
+		</copy>
+
+		<!-- /conf -->
+		<copy todir="${dist.dir}/conf">
+			<fileset dir="${wrapper.dir}/conf"/>
+		</copy>
+		
+		<!-- /etc -->
+		<copy todir="${dist.dir}/etc">
+			<fileset dir="${wrapper.dir}/etc"/>
+			<fileset dir="etc">
+				<include name="keystore.jks"/>
+			</fileset>
+		</copy>
+		
+		<!-- /lib -->
+		<copy todir="${dist.dir}/lib">
+			<fileset dir="lib/jetty"/>
+			<fileset dir="${wrapper.dir}/lib"/>
+		</copy>
+
+		<!-- /logs -->
+		<mkdir dir="${dist.dir}/logs" />
+		
+		<!-- /work -->
+		<mkdir dir="${dist.dir}/work" />
+		
+	</target>
+	
+	<target name="tar">
+	    <tar destfile="${dist.tar}" compression="bzip2">
+	    	<tarfileset dir="${dist.dir}" prefix="${app.name}-${app.version}">
+	    		<exclude name="bin/${app.name}"/>
+	    	</tarfileset>
+	    	<tarfileset dir="${dist.dir}" prefix="${app.name}-${app.version}" filemode="755">
+	    		<include name="bin/${app.name}"/>
+	    	</tarfileset>
+		</tar>
+	</target>
+
+</project>
