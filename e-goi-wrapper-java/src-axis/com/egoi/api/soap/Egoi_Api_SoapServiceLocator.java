@@ -1,5 +1,5 @@
 /**
- * Egoi_ApiServiceLocator.java
+ * Egoi_Api_SoapServiceLocator.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
@@ -7,53 +7,53 @@
 
 package com.egoi.api.soap;
 
-public class Egoi_ApiServiceLocator extends org.apache.axis.client.Service implements com.egoi.api.soap.Egoi_ApiService {
+public class Egoi_Api_SoapServiceLocator extends org.apache.axis.client.Service implements com.egoi.api.soap.Egoi_Api_SoapService {
 
-    public Egoi_ApiServiceLocator() {
+    public Egoi_Api_SoapServiceLocator() {
     }
 
 
-    public Egoi_ApiServiceLocator(org.apache.axis.EngineConfiguration config) {
+    public Egoi_Api_SoapServiceLocator(org.apache.axis.EngineConfiguration config) {
         super(config);
     }
 
-    public Egoi_ApiServiceLocator(java.lang.String wsdlLoc, javax.xml.namespace.QName sName) throws javax.xml.rpc.ServiceException {
+    public Egoi_Api_SoapServiceLocator(java.lang.String wsdlLoc, javax.xml.namespace.QName sName) throws javax.xml.rpc.ServiceException {
         super(wsdlLoc, sName);
     }
 
-    // Use to get a proxy class for Egoi_ApiPort
-    private java.lang.String Egoi_ApiPort_address = "http://api.e-goi.com/v2/soap.php";
+    // Use to get a proxy class for Egoi_Api_SoapPort
+    private java.lang.String Egoi_Api_SoapPort_address = "http://api.e-goi.com/v2/soap_any.php";
 
-    public java.lang.String getEgoi_ApiPortAddress() {
-        return Egoi_ApiPort_address;
+    public java.lang.String getEgoi_Api_SoapPortAddress() {
+        return Egoi_Api_SoapPort_address;
     }
 
     // The WSDD service name defaults to the port name.
-    private java.lang.String Egoi_ApiPortWSDDServiceName = "Egoi_ApiPort";
+    private java.lang.String Egoi_Api_SoapPortWSDDServiceName = "Egoi_Api_SoapPort";
 
-    public java.lang.String getEgoi_ApiPortWSDDServiceName() {
-        return Egoi_ApiPortWSDDServiceName;
+    public java.lang.String getEgoi_Api_SoapPortWSDDServiceName() {
+        return Egoi_Api_SoapPortWSDDServiceName;
     }
 
-    public void setEgoi_ApiPortWSDDServiceName(java.lang.String name) {
-        Egoi_ApiPortWSDDServiceName = name;
+    public void setEgoi_Api_SoapPortWSDDServiceName(java.lang.String name) {
+        Egoi_Api_SoapPortWSDDServiceName = name;
     }
 
-    public com.egoi.api.soap.Egoi_ApiPort getEgoi_ApiPort() throws javax.xml.rpc.ServiceException {
+    public com.egoi.api.soap.Egoi_Api_SoapPort getEgoi_Api_SoapPort() throws javax.xml.rpc.ServiceException {
        java.net.URL endpoint;
         try {
-            endpoint = new java.net.URL(Egoi_ApiPort_address);
+            endpoint = new java.net.URL(Egoi_Api_SoapPort_address);
         }
         catch (java.net.MalformedURLException e) {
             throw new javax.xml.rpc.ServiceException(e);
         }
-        return getEgoi_ApiPort(endpoint);
+        return getEgoi_Api_SoapPort(endpoint);
     }
 
-    public com.egoi.api.soap.Egoi_ApiPort getEgoi_ApiPort(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
+    public com.egoi.api.soap.Egoi_Api_SoapPort getEgoi_Api_SoapPort(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
         try {
-            com.egoi.api.soap.Egoi_ApiBindingStub _stub = new com.egoi.api.soap.Egoi_ApiBindingStub(portAddress, this);
-            _stub.setPortName(getEgoi_ApiPortWSDDServiceName());
+            com.egoi.api.soap.Egoi_Api_SoapBindingStub _stub = new com.egoi.api.soap.Egoi_Api_SoapBindingStub(portAddress, this);
+            _stub.setPortName(getEgoi_Api_SoapPortWSDDServiceName());
             return _stub;
         }
         catch (org.apache.axis.AxisFault e) {
@@ -61,8 +61,8 @@ public class Egoi_ApiServiceLocator extends org.apache.axis.client.Service imple
         }
     }
 
-    public void setEgoi_ApiPortEndpointAddress(java.lang.String address) {
-        Egoi_ApiPort_address = address;
+    public void setEgoi_Api_SoapPortEndpointAddress(java.lang.String address) {
+        Egoi_Api_SoapPort_address = address;
     }
 
     /**
@@ -72,9 +72,9 @@ public class Egoi_ApiServiceLocator extends org.apache.axis.client.Service imple
      */
     public java.rmi.Remote getPort(Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
         try {
-            if (com.egoi.api.soap.Egoi_ApiPort.class.isAssignableFrom(serviceEndpointInterface)) {
-                com.egoi.api.soap.Egoi_ApiBindingStub _stub = new com.egoi.api.soap.Egoi_ApiBindingStub(new java.net.URL(Egoi_ApiPort_address), this);
-                _stub.setPortName(getEgoi_ApiPortWSDDServiceName());
+            if (com.egoi.api.soap.Egoi_Api_SoapPort.class.isAssignableFrom(serviceEndpointInterface)) {
+                com.egoi.api.soap.Egoi_Api_SoapBindingStub _stub = new com.egoi.api.soap.Egoi_Api_SoapBindingStub(new java.net.URL(Egoi_Api_SoapPort_address), this);
+                _stub.setPortName(getEgoi_Api_SoapPortWSDDServiceName());
                 return _stub;
             }
         }
@@ -94,8 +94,8 @@ public class Egoi_ApiServiceLocator extends org.apache.axis.client.Service imple
             return getPort(serviceEndpointInterface);
         }
         java.lang.String inputPortName = portName.getLocalPart();
-        if ("Egoi_ApiPort".equals(inputPortName)) {
-            return getEgoi_ApiPort();
+        if ("Egoi_Api_SoapPort".equals(inputPortName)) {
+            return getEgoi_Api_SoapPort();
         }
         else  {
             java.rmi.Remote _stub = getPort(serviceEndpointInterface);
@@ -105,7 +105,7 @@ public class Egoi_ApiServiceLocator extends org.apache.axis.client.Service imple
     }
 
     public javax.xml.namespace.QName getServiceName() {
-        return new javax.xml.namespace.QName("http://api.e-goi.com/v2/soap.php", "Egoi_ApiService");
+        return new javax.xml.namespace.QName("http://api.e-goi.com/v2/soap_any.php", "Egoi_Api_SoapService");
     }
 
     private java.util.HashSet ports = null;
@@ -113,7 +113,7 @@ public class Egoi_ApiServiceLocator extends org.apache.axis.client.Service imple
     public java.util.Iterator getPorts() {
         if (ports == null) {
             ports = new java.util.HashSet();
-            ports.add(new javax.xml.namespace.QName("http://api.e-goi.com/v2/soap.php", "Egoi_ApiPort"));
+            ports.add(new javax.xml.namespace.QName("http://api.e-goi.com/v2/soap_any.php", "Egoi_Api_SoapPort"));
         }
         return ports.iterator();
     }
@@ -123,8 +123,8 @@ public class Egoi_ApiServiceLocator extends org.apache.axis.client.Service imple
     */
     public void setEndpointAddress(java.lang.String portName, java.lang.String address) throws javax.xml.rpc.ServiceException {
         
-if ("Egoi_ApiPort".equals(portName)) {
-            setEgoi_ApiPortEndpointAddress(address);
+if ("Egoi_Api_SoapPort".equals(portName)) {
+            setEgoi_Api_SoapPortEndpointAddress(address);
         }
         else 
 { // Unknown Port Name

@@ -1,4 +1,4 @@
-package com.egoi.api.wrapper.impl;
+package com.egoi.api.wrapper.impl.xmlrpc;
 
 import org.apache.ws.commons.util.NamespaceContextImpl;
 import org.apache.xmlrpc.common.TypeFactoryImpl;

@@ -4,10 +4,13 @@ import javax.xml.rpc.ServiceException;
 
 import com.egoi.api.wrapper.api.EgoiApi;
 import com.egoi.api.wrapper.domain.exceptions.EgoiException;
+import com.egoi.api.wrapper.impl.rest.EgoiApiRestImpl;
+import com.egoi.api.wrapper.impl.soap.EgoiApiSoap;
+import com.egoi.api.wrapper.impl.xmlrpc.EgoiApiXmlRpcImpl;
 
 public abstract class EgoiApiFactory {
 
-	public static enum Protocol {
+	public static enum EgoiProtocol {
 		Soap, Rest, XmlRpc
 	}
 
@@ -15,17 +18,26 @@ public abstract class EgoiApiFactory {
 	
 	private static EgoiApi xmlRpcImpl;
 	
-	public static EgoiApi getApi(Protocol protocol) throws EgoiException {
+	private static EgoiApi restImpl;
+	
+	public static EgoiApi getApi(EgoiProtocol protocol) throws EgoiException {
 		switch (protocol) {
 			default: case Soap: return getSoapApi();
 			case XmlRpc: return getXmlRpcApi();
+			case Rest: return getRestApi();
 		}
+	}
+
+	private static EgoiApi getRestApi() {
+		if(restImpl == null)
+			restImpl= new EgoiApiRestImpl();
+		return restImpl;
 	}
 
 	private static EgoiApi getXmlRpcApi() throws EgoiException {
 		if(xmlRpcImpl == null)
 			try {
-				xmlRpcImpl = new EgoiApiXmlRpc();
+				xmlRpcImpl = new EgoiApiXmlRpcImpl();
 			} catch (EgoiException e) {
 				throw new EgoiException(e.getMessage(), e);
 			}

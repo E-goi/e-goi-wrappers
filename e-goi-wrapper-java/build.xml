@@ -41,8 +41,8 @@
 	
 	<target name="wsdl2java" depends="resolve">
 		<mkdir dir="${axis.src.dir}" />
-		<wsdl2java verbose="true" output="${axis.src.dir}/" url="http://api.e-goi.com/v2/soap.php?wsdl" deployScope="Session">
-			<mapping package="com.egoi.api.soap" namespace="http://api.e-goi.com/v2/soap.php" name="Foo" />
+		<wsdl2java verbose="true" output="${axis.src.dir}/" url="http://api.e-goi.com/v2/soap_any.php?wsdl" deployScope="Session">
+			<mapping package="com.egoi.api.soap" namespace="http://api.e-goi.com/v2/soap_struct.php" />
 		</wsdl2java>
 	</target>
 
