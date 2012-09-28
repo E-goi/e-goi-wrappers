@@ -5,7 +5,7 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.egoi.api.wrapper.domain.exceptions.EgoiException;
+import com.egoi.api.wrapper.api.exceptions.EgoiException;
 import com.google.common.collect.Maps;
 
 public class EgoiApiRestImpl extends AbstractRestEgoiApi {
@@ -22,7 +22,7 @@ public class EgoiApiRestImpl extends AbstractRestEgoiApi {
 	public Map<String, String> getUserData(String apikey) throws EgoiException {
 		Map<String, String> values = Maps.newHashMap();
 		values.put("apikey", apikey);
-		return processRequest("getUserData", values);
+		return processResult("getUserData", values, String.class);
 	}
 
 	@Override
@@ -30,7 +30,14 @@ public class EgoiApiRestImpl extends AbstractRestEgoiApi {
 		Map<String, String> values = Maps.newHashMap();
 		values.put("username", username);
 		values.put("password", password);
-		return processRequest("getUserData", values);
+		return processResult("getUserData", values, String.class);
+	}
+
+	@Override
+	public Map<String, ?> getLists(String apikey) throws EgoiException {
+		Map<String, String> values = Maps.newHashMap();
+		values.put("apikey", apikey);
+		return processResult("getLists", values, Object.class);
 	}
 
 }

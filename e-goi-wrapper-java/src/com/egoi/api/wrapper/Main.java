@@ -11,9 +11,9 @@ public class Main {
 	static final String ApiAccessKey = "d7cdcc90c0547da5da90c3e14eeff180455c38a2";
 
 	public static void main(String[] args) throws Exception {
-		EgoiApi api = EgoiApiFactory.getApi(EgoiProtocol.Rest);
-		Map<String, String> u = api.getUserData(ApiAccessKey);
-		System.out.println(u);
+		EgoiApi api = EgoiApiFactory.getApi(EgoiProtocol.Soap);
+		System.out.println(api.getUserData(ApiAccessKey));
+//		System.out.println(api.getLists(ApiAccessKey));
 	}
 
 }

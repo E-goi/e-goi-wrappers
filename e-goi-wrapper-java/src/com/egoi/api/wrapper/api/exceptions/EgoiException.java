@@ -1,4 +1,4 @@
-package com.egoi.api.wrapper.domain.exceptions;
+package com.egoi.api.wrapper.api.exceptions;
 
 @SuppressWarnings("serial")
 public class EgoiException extends Exception {

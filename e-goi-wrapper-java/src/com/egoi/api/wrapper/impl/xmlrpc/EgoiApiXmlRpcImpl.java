@@ -2,7 +2,7 @@ package com.egoi.api.wrapper.impl.xmlrpc;
 
 import java.util.Map;
 
-import com.egoi.api.wrapper.domain.exceptions.EgoiException;
+import com.egoi.api.wrapper.api.exceptions.EgoiException;
 import com.google.common.collect.Maps;
 
 public class EgoiApiXmlRpcImpl extends AbstractXmlRpcEgoiApi {
@@ -17,7 +17,7 @@ public class EgoiApiXmlRpcImpl extends AbstractXmlRpcEgoiApi {
 	public Map<String, String> getUserData(String apikey) throws EgoiException {
 		Map<String, String> map = Maps.newHashMap();
 		map.put("apikey", apikey);
-		return processRequest("getUserData", map);
+		return processMapRequest("getUserData", map);
 	}
 
 	@Override
@@ -25,7 +25,17 @@ public class EgoiApiXmlRpcImpl extends AbstractXmlRpcEgoiApi {
 		Map<String, String> map = Maps.newHashMap();
 		map.put("username", username);
 		map.put("password", password);
-		return processRequest("getUserData", map);
+		return processMapRequest("getUserData", map);
+	}
+
+	@Override
+	public Map<String, String> getLists(String apikey) throws EgoiException {
+		Map<String, String> map = Maps.newHashMap();
+		map.put("apikey", apikey);
+		return Maps.newHashMap();
+		/*
+		return processMapArrayRequest("getLists", map);
+		*/
 	}
 
 }

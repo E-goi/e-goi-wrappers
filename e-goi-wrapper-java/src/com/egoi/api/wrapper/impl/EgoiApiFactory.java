@@ -3,7 +3,7 @@ package com.egoi.api.wrapper.impl;
 import javax.xml.rpc.ServiceException;
 
 import com.egoi.api.wrapper.api.EgoiApi;
-import com.egoi.api.wrapper.domain.exceptions.EgoiException;
+import com.egoi.api.wrapper.api.exceptions.EgoiException;
 import com.egoi.api.wrapper.impl.rest.EgoiApiRestImpl;
 import com.egoi.api.wrapper.impl.soap.EgoiApiSoap;
 import com.egoi.api.wrapper.impl.xmlrpc.EgoiApiXmlRpcImpl;

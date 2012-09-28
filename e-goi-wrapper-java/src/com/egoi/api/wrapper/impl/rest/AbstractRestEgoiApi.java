@@ -11,9 +11,8 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.egoi.api.wrapper.domain.exceptions.EgoiException;
+import com.egoi.api.wrapper.api.exceptions.EgoiException;
 import com.egoi.api.wrapper.impl.AbstractEgoiApi;
-import com.google.common.collect.Maps;
 import com.google.gson.Gson;
 
 public abstract class AbstractRestEgoiApi extends AbstractEgoiApi {
@@ -65,35 +64,37 @@ public abstract class AbstractRestEgoiApi extends AbstractEgoiApi {
 	}
 	
 	@SuppressWarnings("unchecked")
-	protected Map<String, String> processRequest(String method, Map<String, String> values) throws EgoiException {
+	protected <T> Map<String, T> processResult(String method, Map<String, String> values, Class<T> expected) throws EgoiException {
 		String url = buildUrl(method, values);
 		if (log.isDebugEnabled())
 			log.debug("Trying url=" + url);
 		String json = fetchResponse(url);
-		Map<String, Object> root = (Map<String, Object>) gson.fromJson(json, Map.class);
 		
-		// Response is empty
-		if(root.isEmpty())
-			return Maps.newHashMap();
+		/**
+		 * Argh... Black Magic :D
+		 * TODO: This method relies too much on the server's response being:
+		 * {
+		 * 	"Egoi_Api" : {
+		 * 		"<method_name>" : {
+		 * 			"key0" : "value0",
+		 * 			"key1" : "value1",
+		 * 			...
+		 * 		}
+		 * 	}
+		 * }
+		 * Will have trouble if the response changes
+		 */
+		Map<String, Map<String, Map<String, T>>> m = gson.fromJson(json, Map.class);
+		Map<String, T> map = m.get("Egoi_Api").get(method);
 		
-		// Fetch first value
-		Object apiNameEntry = root.values().iterator().next();
-		if(!(apiNameEntry instanceof Map))
-			throw new EgoiException("Unexpected values: result map=" + root);
-		
-		// Method Map
-		Map<String, Object> methodNameEntry = ((Map<String, Object>) apiNameEntry);
-		if(methodNameEntry.isEmpty())
-			return Maps.newHashMap();
-		
-		// Result
-		Object result = methodNameEntry.get(method);
-		if(!(result instanceof Map))
-			throw new EgoiException("Unexpected values: result map=" + root);
-
-		Map<String, String> map = (Map<String, String>) result;
-		if(map.containsKey("response"))
-			throw decodeError(map.get("response"));
+		// Se o response existe e é uma String -> ERRO!
+		if(map.containsKey("response")) {
+			Object _response = map.get("response");
+			if (_response instanceof String) {
+				String response = (String) _response;
+				throw decodeError(response);
+			}
+		}
 		
 		return map;
 	}

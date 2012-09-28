@@ -1,27 +1,26 @@
 package com.egoi.api.wrapper.impl;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.egoi.api.wrapper.api.EgoiApi;
-import com.egoi.api.wrapper.domain.exceptions.EgoiException;
+import com.egoi.api.wrapper.api.exceptions.EgoiException;
 
 public abstract class AbstractEgoiApi implements EgoiApi {
 
 	private static final Logger log = LoggerFactory.getLogger(AbstractEgoiApi.class);
-	
+
 	@SuppressWarnings("unchecked")
-	public Map<String, String> extractValueMapOrError(Object o) throws EgoiException {
+	public Map<String, String> decodeMap(Object o) throws EgoiException {
 		if(o==null)
 			return null;
 		
 		if (o instanceof String) {
 			String error = (String) o;
 			throw decodeError(error);
-		} else if(o instanceof HashMap) {
+		} else if(o instanceof Map) {
 			return (Map<String, String>) o;
 		} else {
 			throw new EgoiException("The request result is neither a Map nor a String: " + o.getClass().getSimpleName() + "(" + o.toString() + ")");

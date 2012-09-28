@@ -2,7 +2,7 @@ package com.egoi.api.wrapper.api;
 
 import java.util.Map;
 
-import com.egoi.api.wrapper.domain.exceptions.EgoiException;
+import com.egoi.api.wrapper.api.exceptions.EgoiException;
 
 public interface EgoiApi {
 	
@@ -10,4 +10,5 @@ public interface EgoiApi {
 	
 	Map<String, String> getUserData(String username, String password) throws EgoiException;
 
+	Map<String, ?> getLists(String apikey) throws EgoiException;
 }

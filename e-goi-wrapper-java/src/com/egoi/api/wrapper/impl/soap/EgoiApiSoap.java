@@ -7,7 +7,7 @@ import javax.xml.rpc.ServiceException;
 
 import com.egoi.api.soap.Egoi_Api_SoapPort;
 import com.egoi.api.soap.Egoi_Api_SoapServiceLocator;
-import com.egoi.api.wrapper.domain.exceptions.EgoiException;
+import com.egoi.api.wrapper.api.exceptions.EgoiException;
 import com.egoi.api.wrapper.impl.AbstractEgoiApi;
 import com.google.common.collect.Maps;
 
@@ -25,8 +25,7 @@ public class EgoiApiSoap extends AbstractEgoiApi {
 		Map<String, String> map = Maps.newHashMap();
 		map.put("apikey", apikey);
 		try {
-			Object o = api.getUserData(map);
-			return extractValueMapOrError(o);
+			return decodeMap(api.getUserData(map));
 		} catch (RemoteException e) {
 			throw new EgoiException(e.getMessage(), e);
 		}
@@ -38,8 +37,18 @@ public class EgoiApiSoap extends AbstractEgoiApi {
 		map.put("username", username);
 		map.put("password", password);
 		try {
-			Object o = api.getUserData(map);
-			return extractValueMapOrError(o);
+			return decodeMap(api.getUserData(map));
+		} catch (RemoteException e) {
+			throw new EgoiException(e.getMessage(), e);
+		}
+	}
+
+	@Override
+	public Map<String, ?> getLists(String apikey) throws EgoiException {
+		Map<String, String> map = Maps.newHashMap();
+		map.put("apikey", apikey);
+		try {
+			return decodeMap(api.getLists(map));
 		} catch (RemoteException e) {
 			throw new EgoiException(e.getMessage(), e);
 		}
