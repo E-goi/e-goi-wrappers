@@ -25,7 +25,6 @@ public class Main {
 		EgoiApi api11 = EgoiApiFactory.getApi(EgoiProtocol.XmlRpc);
 		IResult lists11 = api11.getUserData(ApiAccessKey);
 		System.out.println(lists11);
-
 	}
 
 	
