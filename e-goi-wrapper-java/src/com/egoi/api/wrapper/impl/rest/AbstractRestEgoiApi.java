@@ -11,6 +11,7 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.egoi.api.wrapper.api.IResult;
 import com.egoi.api.wrapper.api.exceptions.EgoiException;
 import com.egoi.api.wrapper.impl.AbstractEgoiApi;
 import com.google.gson.Gson;
@@ -51,7 +52,7 @@ public abstract class AbstractRestEgoiApi extends AbstractEgoiApi {
 			StringBuilder response = new StringBuilder();
 			String line;
 			while ((line = br.readLine()) != null)
-				response.append(line);
+				response.append(line).append("\n");
 
 			conn.disconnect();
 
@@ -64,12 +65,10 @@ public abstract class AbstractRestEgoiApi extends AbstractEgoiApi {
 	}
 	
 	@SuppressWarnings("unchecked")
-	protected <T> Map<String, T> processResult(String method, Map<String, String> values, Class<T> expected) throws EgoiException {
-		String url = buildUrl(method, values);
-		if (log.isDebugEnabled())
-			log.debug("Trying url=" + url);
+	protected Map<String, ?> processResult(String method, Map<String, String> arguments) throws EgoiException {
+		String url = buildUrl(method, arguments);
 		String json = fetchResponse(url);
-		
+
 		/**
 		 * Argh... Black Magic :D
 		 * TODO: This method relies too much on the server's response being:
@@ -84,8 +83,8 @@ public abstract class AbstractRestEgoiApi extends AbstractEgoiApi {
 		 * }
 		 * Will have trouble if the response changes
 		 */
-		Map<String, Map<String, Map<String, T>>> m = gson.fromJson(json, Map.class);
-		Map<String, T> map = m.get("Egoi_Api").get(method);
+		Map<String, Map<String, Map<String, ?>>> m = gson.fromJson(json, Map.class);
+		Map<String, ?> map = m.get("Egoi_Api").get(method);
 		
 		// Se o response existe e é uma String -> ERRO!
 		if(map.containsKey("response")) {
@@ -95,7 +94,16 @@ public abstract class AbstractRestEgoiApi extends AbstractEgoiApi {
 				throw decodeError(response);
 			}
 		}
+
+		// Remover o response e o status
+//		if(map.containsKey("status")) map.remove("status");
 		
 		return map;
 	}
+	
+	protected IResult decodeResult(String method, Map<String, String> arguments) throws EgoiException {
+		Map<String, ?> map = processResult(method, arguments);
+		return walkMap(map);
+	}
+	
 }

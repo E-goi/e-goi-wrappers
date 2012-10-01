@@ -8,6 +8,7 @@ import org.apache.xmlrpc.XmlRpcException;
 import org.apache.xmlrpc.client.XmlRpcClient;
 import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
 
+import com.egoi.api.wrapper.api.IResult;
 import com.egoi.api.wrapper.api.exceptions.EgoiException;
 import com.egoi.api.wrapper.impl.AbstractEgoiApi;
 
@@ -27,10 +28,10 @@ public abstract class AbstractXmlRpcEgoiApi extends AbstractEgoiApi {
 		xmlrpc.setTypeFactory(new NullWorkaroundTypeFactory(xmlrpc));
 	}
 	
-	protected Map<String, String> processMapRequest(String method, Map<String, String> functionOptions) throws EgoiException {
+	protected IResult processRequest(String method, Map<String, String> functionOptions) throws EgoiException {
 		try {
-			Object o = xmlrpc.execute("getUserData", new Object[] {functionOptions});
-			return decodeMap(o);
+			Object o = xmlrpc.execute(method, new Object[] {functionOptions});
+			return decodeResult(o);
 		} catch (XmlRpcException e) {
 			throw new EgoiException(e.getMessage(), e);
 		}

@@ -5,9 +5,9 @@
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package com.egoi.api.soap;
+package com.egoi.api.soap.any;
 
-public class Egoi_Api_SoapServiceLocator extends org.apache.axis.client.Service implements com.egoi.api.soap.Egoi_Api_SoapService {
+public class Egoi_Api_SoapServiceLocator extends org.apache.axis.client.Service implements com.egoi.api.soap.any.Egoi_Api_SoapService {
 
     public Egoi_Api_SoapServiceLocator() {
     }
@@ -39,7 +39,7 @@ public class Egoi_Api_SoapServiceLocator extends org.apache.axis.client.Service 
         Egoi_Api_SoapPortWSDDServiceName = name;
     }
 
-    public com.egoi.api.soap.Egoi_Api_SoapPort getEgoi_Api_SoapPort() throws javax.xml.rpc.ServiceException {
+    public com.egoi.api.soap.any.Egoi_Api_SoapPort getEgoi_Api_SoapPort() throws javax.xml.rpc.ServiceException {
        java.net.URL endpoint;
         try {
             endpoint = new java.net.URL(Egoi_Api_SoapPort_address);
@@ -50,9 +50,9 @@ public class Egoi_Api_SoapServiceLocator extends org.apache.axis.client.Service 
         return getEgoi_Api_SoapPort(endpoint);
     }
 
-    public com.egoi.api.soap.Egoi_Api_SoapPort getEgoi_Api_SoapPort(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
+    public com.egoi.api.soap.any.Egoi_Api_SoapPort getEgoi_Api_SoapPort(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
         try {
-            com.egoi.api.soap.Egoi_Api_SoapBindingStub _stub = new com.egoi.api.soap.Egoi_Api_SoapBindingStub(portAddress, this);
+            com.egoi.api.soap.any.Egoi_Api_SoapBindingStub _stub = new com.egoi.api.soap.any.Egoi_Api_SoapBindingStub(portAddress, this);
             _stub.setPortName(getEgoi_Api_SoapPortWSDDServiceName());
             return _stub;
         }
@@ -72,8 +72,8 @@ public class Egoi_Api_SoapServiceLocator extends org.apache.axis.client.Service 
      */
     public java.rmi.Remote getPort(Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
         try {
-            if (com.egoi.api.soap.Egoi_Api_SoapPort.class.isAssignableFrom(serviceEndpointInterface)) {
-                com.egoi.api.soap.Egoi_Api_SoapBindingStub _stub = new com.egoi.api.soap.Egoi_Api_SoapBindingStub(new java.net.URL(Egoi_Api_SoapPort_address), this);
+            if (com.egoi.api.soap.any.Egoi_Api_SoapPort.class.isAssignableFrom(serviceEndpointInterface)) {
+                com.egoi.api.soap.any.Egoi_Api_SoapBindingStub _stub = new com.egoi.api.soap.any.Egoi_Api_SoapBindingStub(new java.net.URL(Egoi_Api_SoapPort_address), this);
                 _stub.setPortName(getEgoi_Api_SoapPortWSDDServiceName());
                 return _stub;
             }

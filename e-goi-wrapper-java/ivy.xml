@@ -68,6 +68,8 @@
 		<!-- GSON -->
 		<dependency org="com.google.code.gson" name="gson" rev="2.3-SNAPSHOT" conf="dev, deploy->default"/>
 	
-				
+		<!-- xstream -->
+	 	<dependency org="com.thoughtworks.xstream" name="xstream" rev="1.3.1" conf="deploy->default" />
+		
 	</dependencies>
 </ivy-module>

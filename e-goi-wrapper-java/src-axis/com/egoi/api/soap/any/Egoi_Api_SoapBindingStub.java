@@ -5,9 +5,9 @@
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package com.egoi.api.soap;
+package com.egoi.api.soap.any;
 
-public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implements com.egoi.api.soap.Egoi_Api_SoapPort {
+public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implements com.egoi.api.soap.any.Egoi_Api_SoapPort {
     private java.util.Vector cachedSerClasses = new java.util.Vector();
     private java.util.Vector cachedSerQNames = new java.util.Vector();
     private java.util.Vector cachedSerFactories = new java.util.Vector();

@@ -7,11 +7,6 @@ public class EgoiException extends Exception {
 		super();
 	}
 
-	public EgoiException(String message, Throwable cause,
-			boolean enableSuppression, boolean writableStackTrace) {
-		super(message, cause, enableSuppression, writableStackTrace);
-	}
-
 	public EgoiException(String message, Throwable cause) {
 		super(message, cause);
 	}

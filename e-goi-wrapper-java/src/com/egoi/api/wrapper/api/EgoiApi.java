@@ -1,14 +1,15 @@
 package com.egoi.api.wrapper.api;
 
-import java.util.Map;
 
 import com.egoi.api.wrapper.api.exceptions.EgoiException;
 
 public interface EgoiApi {
 	
-	Map<String, String> getUserData(String apikey) throws EgoiException;
+	IResult addExtraField(String apikey, int listID, String name, String type) throws EgoiException;
 	
-	Map<String, String> getUserData(String username, String password) throws EgoiException;
+	IResult getUserData(String apikey) throws EgoiException;
+	
+	IResult getUserData(String username, String password) throws EgoiException;
 
-	Map<String, ?> getLists(String apikey) throws EgoiException;
+	IResult getLists(String apikey) throws EgoiException;
 }
