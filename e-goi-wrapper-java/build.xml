@@ -80,7 +80,7 @@
 		</copy>
 	</target>
 	
-	<target name="package">
+	<target name="package" depends="dist">
 		<tar destfile="${release.dir}/${dist.tar}" compression="bzip2">
 			<tarfileset dir="${dist.dir}" prefix="${app.name}-${app.version}"/>
 		</tar>
