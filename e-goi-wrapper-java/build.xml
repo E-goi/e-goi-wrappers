@@ -11,6 +11,7 @@
 	<property name="lib.dir" value="${project.dir}/lib"/>
 	<property name="dist.dir" value="${project.dir}/dist" />
 	<property name="dist.tar" value="${app.name}-${app.version}.tar.bz" />
+	<property name="release.dir" value="${project.dir}/release" />
 	<property name="includeantruntime" value="true"/>
 	
 	<target name="clean">
@@ -21,13 +22,21 @@
 		<ivy:retrieve conf="dev,deploy,ant" pattern="${lib.dir}/[conf]/[artifact]-[revision](-[classifier]).[ext]" />
 	</target>
 	
+	<path id="egoi.class.path">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+	
 	<target name="compile" depends="resolve">
 		<mkdir dir="${bin.dir}" />
 		
-		<javac includeantruntime="${includeantruntime}" srcdir="src" destdir="${bin.dir}" source="1.6" target="1.6" debug="on">
-			<classpath>
-				<fileset dir="${lib.dir}" />
-			</classpath>
+		<javac includeantruntime="${includeantruntime}" srcdir="${axis.src.dir}" destdir="${bin.dir}" source="1.6" target="1.6" debug="on">
+			<classpath refid="egoi.class.path" />
+		</javac>
+
+		<javac includeantruntime="${includeantruntime}" srcdir="${src.dir}" destdir="${bin.dir}" source="1.6" target="1.6" debug="on">
+			<classpath refid="egoi.class.path" />
 		</javac>
 	</target>
 
@@ -64,54 +73,16 @@
 	<!-- == Wrapper Stuff ============================================================== -->
 	<!-- =============================================================================== -->
 	
-	<target name="dist">
-		
-		<!-- /bin -->
-		<copy todir="${dist.dir}/bin">
-			<fileset dir="${project.dir}/bin"/>
-		</copy>
-		<chmod perm="755" file="${dist.dir}/bin/${app.name}" />
-		
-		<!-- /contexts -->
-		<copy todir="${dist.dir}/contexts">
-			<fileset dir="${wrapper.dir}/contexts"/>
-		</copy>
-
-		<!-- /conf -->
-		<copy todir="${dist.dir}/conf">
-			<fileset dir="${wrapper.dir}/conf"/>
-		</copy>
-		
-		<!-- /etc -->
-		<copy todir="${dist.dir}/etc">
-			<fileset dir="${wrapper.dir}/etc"/>
-			<fileset dir="etc">
-				<include name="keystore.jks"/>
-			</fileset>
-		</copy>
-		
+	<target name="dist" depends="jar+src">
 		<!-- /lib -->
-		<copy todir="${dist.dir}/lib">
-			<fileset dir="lib/jetty"/>
-			<fileset dir="${wrapper.dir}/lib"/>
+		<copy todir="${dist.dir}/dependencies">
+			<fileset dir="${lib.dir}/deploy"/>
 		</copy>
-
-		<!-- /logs -->
-		<mkdir dir="${dist.dir}/logs" />
-		
-		<!-- /work -->
-		<mkdir dir="${dist.dir}/work" />
-		
 	</target>
 	
-	<target name="tar">
-	    <tar destfile="${dist.tar}" compression="bzip2">
-	    	<tarfileset dir="${dist.dir}" prefix="${app.name}-${app.version}">
-	    		<exclude name="bin/${app.name}"/>
-	    	</tarfileset>
-	    	<tarfileset dir="${dist.dir}" prefix="${app.name}-${app.version}" filemode="755">
-	    		<include name="bin/${app.name}"/>
-	    	</tarfileset>
+	<target name="package">
+		<tar destfile="${release.dir}/${dist.tar}" compression="bzip2">
+			<tarfileset dir="${dist.dir}" prefix="${app.name}-${app.version}"/>
 		</tar>
 	</target>
 
