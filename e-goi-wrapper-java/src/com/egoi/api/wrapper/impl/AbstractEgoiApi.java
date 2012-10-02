@@ -4,9 +4,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.egoi.api.wrapper.api.EgoiApi;
 import com.egoi.api.wrapper.api.EgoiMap;
 import com.egoi.api.wrapper.api.EgoiMapList;
@@ -16,7 +13,7 @@ import com.google.common.collect.Lists;
 
 public abstract class AbstractEgoiApi implements EgoiApi {
 
-	private static final Logger log = LoggerFactory.getLogger(AbstractEgoiApi.class);
+//	private static final Logger log = LoggerFactory.getLogger(AbstractEgoiApi.class);
 
 	@SuppressWarnings("unchecked")
 	protected EgoiType walkMap(Map<String, ?> map) {

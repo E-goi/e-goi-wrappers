@@ -8,9 +8,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.egoi.api.wrapper.api.EgoiMap;
 import com.egoi.api.wrapper.api.EgoiType;
 import com.egoi.api.wrapper.api.exceptions.EgoiException;
@@ -19,7 +16,7 @@ import com.google.gson.Gson;
 
 public abstract class AbstractRestEgoiApi extends AbstractEgoiApi {
 
-	private static final Logger log = LoggerFactory.getLogger(AbstractRestEgoiApi.class);
+//	private static final Logger log = LoggerFactory.getLogger(AbstractRestEgoiApi.class);
 	
 	private String serviceUrl;
 	

@@ -1,8 +1,5 @@
 package com.egoi.api.wrapper.impl.rest;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.egoi.api.wrapper.api.EgoiMap;
 import com.egoi.api.wrapper.api.EgoiMapList;
 import com.egoi.api.wrapper.api.exceptions.EgoiException;
@@ -15,7 +12,7 @@ public class EgoiApiRestImpl extends AbstractRestEgoiApi {
 		super(ServiceUrl);
 	}
 
-	private static final Logger log = LoggerFactory.getLogger(EgoiApiRestImpl.class);
+//	private static final Logger log = LoggerFactory.getLogger(EgoiApiRestImpl.class);
 
 	@Override
 	public EgoiMap addExtraField(EgoiMap arguments) throws EgoiException {

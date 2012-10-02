@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:ivy="antlib:org.apache.ivy.ant" name="sumarios" default="compile">
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="e-goi-wrapper-java" default="compile">
 
 	<property name="app.version" value="0.1"/>
 	<property name="app.name" value="e-goi-wrapper-java"/>
@@ -44,6 +44,20 @@
 		<wsdl2java verbose="true" output="${axis.src.dir}/" url="http://api.e-goi.com/v2/soap_any.php?wsdl" deployScope="Session">
 			<mapping package="com.egoi.api.soap.any" namespace="http://api.e-goi.com/v2/soap_any.php" />
 		</wsdl2java>
+	</target>
+	
+	<target name="jar+src" depends="compile">
+		<jar destfile="${dist.dir}/${app.name}-${app.version}.jar">
+			<fileset dir="${bin.dir}" />
+			<fileset dir="${src.dir}" />
+			<fileset dir="${axis.src.dir}" />
+		</jar>
+	</target>
+
+	<target name="jar" depends="compile">
+		<jar destfile="${dist.dir}/${app.name}-${app.version}.jar">
+			<fileset dir="${bin.dir}" />
+		</jar>
 	</target>
 
 	<!-- =============================================================================== -->
