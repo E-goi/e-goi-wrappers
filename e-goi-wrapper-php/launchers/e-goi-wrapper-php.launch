@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.php.debug.core.launching.PHPExeLaunchConfigurationType">
+<stringAttribute key="ATTR_FILE" value="/e-goi-wrapper-php/index.php"/>
+<stringAttribute key="ATTR_FILE_FULL_PATH" value="/Volumes/Data/Users/luislobo/git/e-goi-wrappers/e-goi-wrapper-php/index.php"/>
+<stringAttribute key="ATTR_LOCATION" value="/usr/bin/php"/>
+<stringAttribute key="debugOutputEncoding" value="UTF-8"/>
+<stringAttribute key="debugTransferEncoding" value="UTF-8"/>
+<booleanAttribute key="firstLineBreakpoint" value="true"/>
+<listAttribute key="org.eclipse.debug.ui.favoriteGroups">
+<listEntry value="org.eclipse.debug.ui.launchGroup.debug"/>
+<listEntry value="org.eclipse.debug.ui.launchGroup.run"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.php.debug.core.PHP_Project" value="/e-goi-wrapper-php"/>
+<booleanAttribute key="org.eclipse.php.debug.core.RunWithDebugInfo" value="true"/>
+<stringAttribute key="org.eclipse.php.debug.coreconfiguration_delegate_class" value="org.eclipse.php.internal.debug.core.launching.PHPExecutableLaunchDelegate"/>
+<stringAttribute key="org.eclipse.php.debug.corephp_debugger_id" value="org.eclipse.php.debug.core.zendDebugger"/>
+<stringAttribute key="php_debug_type" value="php_exe_script_debug"/>
+</launchConfiguration>
