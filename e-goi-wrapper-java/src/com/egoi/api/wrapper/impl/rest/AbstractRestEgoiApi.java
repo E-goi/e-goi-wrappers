@@ -11,7 +11,8 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.egoi.api.wrapper.api.IResult;
+import com.egoi.api.wrapper.api.EgoiMap;
+import com.egoi.api.wrapper.api.EgoiType;
 import com.egoi.api.wrapper.api.exceptions.EgoiException;
 import com.egoi.api.wrapper.impl.AbstractEgoiApi;
 import com.google.gson.Gson;
@@ -28,7 +29,7 @@ public abstract class AbstractRestEgoiApi extends AbstractEgoiApi {
 		this.serviceUrl = serviceUrl;
 	}
 	
-	protected String buildUrl(String method, Map<String, String> values) {
+	protected String buildUrl(String method, EgoiMap values) {
 		StringBuilder url = new StringBuilder(serviceUrl);
 		url.append("&method=").append(method);
 		for (String key : values.keySet())
@@ -65,7 +66,7 @@ public abstract class AbstractRestEgoiApi extends AbstractEgoiApi {
 	}
 	
 	@SuppressWarnings("unchecked")
-	protected Map<String, ?> processResult(String method, Map<String, String> arguments) throws EgoiException {
+	protected Map<String, ?> processResult(String method, EgoiMap arguments) throws EgoiException {
 		String url = buildUrl(method, arguments);
 		String json = fetchResponse(url);
 
@@ -101,9 +102,10 @@ public abstract class AbstractRestEgoiApi extends AbstractEgoiApi {
 		return map;
 	}
 	
-	protected IResult decodeResult(String method, Map<String, String> arguments) throws EgoiException {
+	protected <T extends EgoiType> T decodeResult(String method, EgoiMap arguments, Class<T> proto) throws EgoiException {
 		Map<String, ?> map = processResult(method, arguments);
-		return walkMap(map);
+		EgoiType r = walkMap(map);
+		return r != null ? r.as(proto) : null;
 	}
 	
 }

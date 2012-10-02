@@ -8,9 +8,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.egoi.api.wrapper.api.EgoiApi;
-import com.egoi.api.wrapper.api.IResult;
-import com.egoi.api.wrapper.api.MapResult;
-import com.egoi.api.wrapper.api.MapResultList;
+import com.egoi.api.wrapper.api.EgoiMap;
+import com.egoi.api.wrapper.api.EgoiMapList;
+import com.egoi.api.wrapper.api.EgoiType;
 import com.egoi.api.wrapper.api.exceptions.EgoiException;
 import com.google.common.collect.Lists;
 
@@ -19,10 +19,10 @@ public abstract class AbstractEgoiApi implements EgoiApi {
 	private static final Logger log = LoggerFactory.getLogger(AbstractEgoiApi.class);
 
 	@SuppressWarnings("unchecked")
-	protected IResult walkMap(Map<String, ?> map) {
-		IResult r = null;
+	protected EgoiType walkMap(Map<String, ?> map) {
+		EgoiType r = null;
 		if(map.containsKey("key_0")) {
-			MapResultList mrl = new MapResultList();
+			EgoiMapList mrl = new EgoiMapList();
 			List<String> keys = Lists.newArrayList(map.keySet());
 			Collections.sort(keys);
 			for(String k : keys) {
@@ -30,25 +30,25 @@ public abstract class AbstractEgoiApi implements EgoiApi {
 					continue;
 				
 				Map<String, ?> v = (Map<String, ?>) map.get(k);
-				mrl.add(walkValues(new MapResult(v)));
+				mrl.add(walkValues(new EgoiMap(v)));
 			}
 			r = mrl;
 		} else {
-			r = walkValues(new MapResult(map));
+			r = walkValues(new EgoiMap(map));
 		}
 			
 		return r;
 	}
 
-	private IResult walkArray(List<Map<String, ?>> list) {
-		MapResultList mrl = new MapResultList();
+	private EgoiType walkArray(List<Map<String, ?>> list) {
+		EgoiMapList mrl = new EgoiMapList();
 		for(Map<String, ?> map : list)
-			mrl.add(walkValues(new MapResult(map)));
+			mrl.add(walkValues(new EgoiMap(map)));
 		return mrl;
 	}
 
 	@SuppressWarnings("unchecked")
-	protected IResult walkValues(MapResult map) {
+	protected EgoiMap walkValues(EgoiMap map) {
 		for(String key : map.keySet()) {
 			Object obj = map.get(key);
 			if (obj instanceof Map) {
@@ -64,21 +64,25 @@ public abstract class AbstractEgoiApi implements EgoiApi {
 		return map;
 	}
 	
-	public IResult decodeResult(Object obj) throws EgoiException {
+	public <T extends EgoiType> T decodeResult(Object obj, Class<T> expected) throws EgoiException {
 		if(obj==null)
 			return null;
 
+		EgoiType r = null;
+		
 		if (obj instanceof String) {
 			String error = (String) obj;
 			throw decodeError(error);
 		} else if (obj instanceof Map) {
-			return walkValues(new MapResult(obj));
+			r = walkValues(new EgoiMap(obj));
 		} else if(obj instanceof Object[]) {
 			List<Map<String, ?>> mapList = extractMapList((Object[]) obj);
-			return walkArray(mapList);
+			r = walkArray(mapList);
 		} else {
 			throw new EgoiException("The request result is neither a Map nor a String: " + obj.getClass().getSimpleName() + "(" + obj.toString() + ")");
 		}
+		
+		return r != null ? r.as(expected) : null;
 	}
 	
 	@SuppressWarnings("unchecked")
