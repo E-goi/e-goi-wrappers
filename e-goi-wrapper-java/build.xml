@@ -16,6 +16,7 @@
 	
 	<target name="clean">
 		<delete dir="${lib.dir}" /><!-- ivy files -->
+		<delete dir="${bin.dir}" />
 	</target>
 	
 	<target name="resolve" description="--> retrieve dependencies with ivy">

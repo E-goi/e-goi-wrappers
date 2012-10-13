@@ -10,23 +10,26 @@ import com.egoi.api.wrapper.impl.EgoiApiFactory.EgoiProtocol;
 
 public class Main {
 
-	static final String ApiAccessKey = "d7cdcc90c0547da5da90c3e14eeff180455c38a2";
+	static final String ApiAccessKey = "<api key>";
 
 	public static void main(String[] args) throws Exception {
-//		EgoiApi api = EgoiApiFactory.getApi(EgoiProtocol.Soap);
-//		
-//		EgoiMap arg = new EgoiMap();
-//		arg.put("apikey", ApiAccessKey);
-//		
-//		EgoiMapList lists = api.getLists(arg);
-//		for(EgoiMap list : lists) {
-//			// Fazer alguma coisa com a lista
-//		}
-//		
-//		
+		EgoiApi api = EgoiApiFactory.getApi(EgoiProtocol.Soap);
+		
+		EgoiMap arg = new EgoiMap();
+		arg.put("apikey", ApiAccessKey);
+		
+		EgoiMapList lists = api.getLists(arg);
+		for(EgoiMap list : lists) {
+			// Fazer alguma coisa com a lista
+			System.out.println(list);
+		}
+		
+		
 		Method[] methods = EgoiApi.class.getDeclaredMethods();
 		for(Method m : methods) {
-			System.out.println("\tpublic abstract function " + m.getName() + "($map) {\n\n}\n\n");
+			System.out.println("    def " + m.getName() + "(self, functionOptions):");
+			System.out.println("        return self.client." + m.getName() + "(functionOptions)");
+			System.out.println();
 		}
 	}
 
