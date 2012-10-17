@@ -1,0 +1,20 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+
+PROJECT(egoilib)
+
+SET(CMAKE_MODULE_PATH ${egoilib_SOURCE_DIR}/cmake)
+
+OPTION(DEVEL_MODE "Enable Development Mode")
+
+# Egoi Lib
+MESSAGE(STATUS "Egoi Library type: shared")
+ADD_DEFINITIONS(-DEGOILIB_DLL)
+
+SUBDIRS(src test)
+
+INCLUDE_DIRECTORIES(${egoilib_SOURCE_DIR} ${egoilib_BINARY_DIR})
+
+CONFIGURE_FILE(${egoilib_SOURCE_DIR}/config.h.in ${egoilib_BINARY_DIR}/config.h)
+
+SET(LIBRARY_OUTPUT_PATH ${egoilib_BINARY_DIR}/lib)
+SET(EXECUTABLE_OUTPUT_PATH ${egoilib_BINARY_DIR})

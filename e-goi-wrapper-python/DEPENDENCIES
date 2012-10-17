@@ -1,5 +1,5 @@
 # Para o SOAP
-- SOAPPy: http://pywebsvcs.sourceforge.net/
+- SOAPPy: sudo easy_install soappy
 
 # Para o XmlRpc
 - xmlrpclib: sudo easy_install xmlrpclib
