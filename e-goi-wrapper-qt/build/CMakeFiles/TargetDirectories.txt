@@ -1,0 +1,3 @@
+/Volumes/Data/Users/luislobo/git/e-goi-wrappers/e-goi-wrapper-cpp/build/src/CMakeFiles/egoi.dir
+/Volumes/Data/Users/luislobo/git/e-goi-wrappers/e-goi-wrapper-cpp/build/test/CMakeFiles/egoi-test.dir
+/Volumes/Data/Users/luislobo/git/e-goi-wrappers/e-goi-wrapper-cpp/build/xmlrpc/CMakeFiles/xmlrpc.dir

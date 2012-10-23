@@ -1,0 +1,1 @@
+/usr/bin/c++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/egoi-test.dir/main.cpp.o  -o ../egoi-test  -framework QtGui -framework QtXml -framework QtNetwork -framework QtCore ../lib/libegoi.dylib ../lib/libxmlrpc.dylib -framework QtGui -framework QtXml -framework QtNetwork -framework QtCore 
