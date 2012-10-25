@@ -4,6 +4,10 @@ my $mod;
 
 if($INC{"Egoi/Api/XmlRpc.pm"}) {
 	$mod = Egoi::Api::XmlRpc;
+} elsif($INC{"Egoi/Api/Soap.pm"}) {
+	$mod = Egoi::Api::Soap;
+} else {
+	print "Please use one of 'Egoi::Api::XmlRpc' or 'Egoi::Api::Soap' before 'Egoi::Api'\n";
 }
 
 sub addExtraField {

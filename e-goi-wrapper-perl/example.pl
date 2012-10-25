@@ -3,13 +3,14 @@
 use Data::Dumper;
 use feature 'say';
 
-use Egoi::Api::XmlRpc;
+use Egoi::Api::Soap;
 use Egoi::Api;
 
 my $functionOptions = {
-	apikey => "<your key>"
+	apikey => "d7cdcc90c0547da5da90c3e14eeff180455c38a2"
 };
 
-$m = Egoi::Api::getUserData($functionOptions);
+
+$m = Egoi::Api::getLists($functionOptions);
 
 say Dumper $m;

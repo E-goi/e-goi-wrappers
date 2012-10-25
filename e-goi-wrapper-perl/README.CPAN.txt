@@ -6,3 +6,4 @@ o conf commit
 
 -- Dependencies --
 cpan install RPC::XML
+cpan install SOAP::Lite
