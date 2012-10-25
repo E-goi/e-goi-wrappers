@@ -40,4 +40,6 @@ class Egoi
 
         static EgoiApi * getApi();
 
+        static std::string decodeError(std::string error);
+
 };

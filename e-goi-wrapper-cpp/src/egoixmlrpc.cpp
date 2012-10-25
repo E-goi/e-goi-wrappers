@@ -203,11 +203,13 @@ xmlrpc_c::value_string EgoiApiXmlRpcImpl::toString(EgoiString * value) const
     return xmlrpc_c::value_string(value->value());
 }
 
-void EgoiApiXmlRpcImpl::checkError(xmlrpc_c::value &v) const
+void EgoiApiXmlRpcImpl::checkError(const std::string & fname, xmlrpc_c::value &v) const
 {
     if(v.type() == xmlrpc_c::value::TYPE_STRING) { // Ocorreu um erro
-        std::string r("An error occurred : ");
-        r.append(xmlrpc_c::value_string(v).crlfValue());
+        std::string error = xmlrpc_c::value_string(v).crlfValue();
+        std::string r("An error occurred invoking '");
+        r.append(fname).append("': ");
+        r.append(Egoi::decodeError(error));
         throw EgoiException(r);
     }
 }
@@ -215,16 +217,18 @@ void EgoiApiXmlRpcImpl::checkError(xmlrpc_c::value &v) const
 EgoiMap EgoiApiXmlRpcImpl::getUserData(EgoiMap & functionOptions) const
 {
     xmlrpc_c::value v;
-    m_client->call(XMLRPC_SERVER_URL, "getUserData", createParamList(functionOptions), &v);
-    checkError(v);
+    std::string fname = "getUserData";
+    m_client->call(XMLRPC_SERVER_URL, fname, createParamList(functionOptions), &v);
+    checkError(fname, v);
     return toMap(v);
 }
 
 EgoiMapList EgoiApiXmlRpcImpl::getLists(EgoiMap & functionOptions) const
 {
     xmlrpc_c::value v;
-    m_client->call(XMLRPC_SERVER_URL, "getLists", createParamList(functionOptions), &v);
-    checkError(v);
+    std::string fname = "getLists";
+    m_client->call(XMLRPC_SERVER_URL, fname, createParamList(functionOptions), &v);
+    checkError(fname, v);
     return toMapList(v);
 }
 

@@ -227,6 +227,9 @@ public abstract class AbstractEgoiApi implements EgoiApi {
 			return new EgoiException("O e-mail introduzido tem um erro nos registos MX");
 		if("INTERNAL_ERROR".equals(error))
 			return new EgoiException("Ocorreu um problema no servidor");
+		if("NO_USERNAME_AND_PASSWORD_AND_APIKEY".equals(error)) {
+			return new EgoiException("Não foi especificado nenhum utilizador/password ou apikey");
+		}
 		return new EgoiException("Erro Desconhecido");
 	}
 }

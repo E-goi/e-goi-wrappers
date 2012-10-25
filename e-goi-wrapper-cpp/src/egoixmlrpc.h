@@ -33,6 +33,6 @@ class EgoiApiXmlRpcImpl : public EgoiApi {
         xmlrpc_c::value_array toArray(EgoiMapList * value) const;
         xmlrpc_c::value_string toString(EgoiString * value) const;
 
-        void checkError(xmlrpc_c::value & v) const;
+        void checkError(const std::string & fname, xmlrpc_c::value & v) const;
 };
 
