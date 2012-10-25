@@ -2,6 +2,9 @@ package Egoi::Api::Soap;
 
 use SOAP::Lite;
 
+use Data::Dumper;
+use feature 'say';
+
 $client = SOAP::Lite                                             
     -> uri('http://api.e-goi.com/v2/soap_any.php')                                             
     -> proxy('http://api.e-goi.com/v2/soap_any.php');
@@ -23,8 +26,13 @@ sub invoke {
 			$result->faultstring, 
 			$result->faultdetail;
 	}
-
-	return $result->result();
+	
+	$value = $result->result();
+	
+	die "An error occurred while calling $fname: " . Egoi::Api::decodeError($value)
+		if(ref($value) ne 'ARRAY' and  ref($value) ne 'HASH');
+	
+	return $value;
 }
 
 sub addExtraField {

@@ -16,7 +16,7 @@ sub invoke {
 	$res = $client->send_request($fname, RPC::XML::struct->new($params));
 
 	# foi um erro
-	die "An error occurred while calling $fname: " . $res->value unless($res->type ne "string");
+	die "An error occurred while calling $fname: " . Egoi::Api::decodeError($res->value) unless($res->type ne "string");
 		
 	return $res->value;
 }

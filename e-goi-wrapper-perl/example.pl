@@ -12,7 +12,7 @@ my $functionOptions = {
 	apikey => "d7cdcc90c0547da5da90c3e14eeff180455c38a2"
 };
 
-
 $m = Egoi::Api::getLists($functionOptions);
 
 say Dumper $m;
+
