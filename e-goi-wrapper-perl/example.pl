@@ -3,7 +3,9 @@
 use Data::Dumper;
 use feature 'say';
 
-use Egoi::Api::Soap;
+# To choose the protocol (XmlRpc or Soap) use the respective package
+# use Egoi::Api::Soap;
+use Egoi::Api::XmlRpc;
 use Egoi::Api;
 
 my $functionOptions = {
