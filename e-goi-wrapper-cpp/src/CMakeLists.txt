@@ -1,7 +1,7 @@
 SET(sources
-    egoi.cpp
-    egoimap.cpp
-    egoixmlrpc.cpp
+	egoi.cpp
+	egoimap.cpp
+	egoixmlrpc.cpp
 )
 
 ADD_LIBRARY(egoi SHARED ${sources})

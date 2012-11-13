@@ -25,11 +25,20 @@ public class Main {
 //		}
 		
 		
+		// virtual EgoiMapList getLists(EgoiMap & functionOptions) const = 0;
+		// EgoiMap EgoiApiXmlRpcImpl::invokeMap(const std::string & fname, EgoiMap &funcionOptions) const {
 		Method[] methods = EgoiApi.class.getDeclaredMethods();
 		for(Method m : methods) {
-			System.out.println("sub " + m.getName() + " {");
-			System.out.println("\treturn invoke($_[1]);");
-			System.out.println("}\n");
+			
+			String ret = m.getReturnType().equals(EgoiMap.class) ? "Map" : "MapList";
+			String fname = m.getName();
+			
+			StringBuilder s = new StringBuilder();
+			s.append("Egoi").append(ret).append(" EgoiApiXmlRpcImpl::").append(fname).append("(EgoiMap &functionOptions) const {\n");
+			s.append("\treturn invoke").append(ret).append("(\"").append(fname).append("\", functionOptions);\n");
+			s.append("}\n\n");
+
+			System.out.println(s);
 		}
 	}
 

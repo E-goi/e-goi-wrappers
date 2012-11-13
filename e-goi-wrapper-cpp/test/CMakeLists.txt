@@ -1,12 +1,12 @@
 SET(executable_name "egoi-test")
 
 SET(sources
-    main.cpp
+	main.cpp
 )
 
 INCLUDE_DIRECTORIES(
-    ${PROJECT_SOURCE_DIR}/test
-    ${PROJECT_SOURCE_DIR}/src
+	${PROJECT_SOURCE_DIR}/test
+	${PROJECT_SOURCE_DIR}/src
 )
 
 ADD_EXECUTABLE(${executable_name} WIN32 ${sources})

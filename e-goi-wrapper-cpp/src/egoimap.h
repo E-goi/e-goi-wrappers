@@ -53,7 +53,7 @@ class EgoiString : public EgoiValue {
 
 		const std::string toString() const;
 
-        std::string value() const;
+		std::string value() const;
 
 	private:
 		std::string m_value;
@@ -93,13 +93,13 @@ class EgoiMapList : public EgoiValue {
 
 		const std::string toString() const;
 
-        typedef std::list<EgoiValue*>::const_iterator iterator;
+		typedef std::list<EgoiValue*>::const_iterator iterator;
 
 		iterator begin() const { return m_list.begin(); }
 
 		iterator end() const { return m_list.end(); }
 
-        EgoiMapList operator<< (EgoiValue * value);
+		EgoiMapList operator<< (EgoiValue * value);
 
 	private:
 		std::list<EgoiValue*> m_list;

@@ -14,9 +14,9 @@ FIND_PACKAGE(XMLRPC REQUIRED
 	# server-util    # basic server functions (implied by *-server)
 )
 
-FOREACH(lib ${XMLRPC_LIBRARIES})
-	MESSAGE("[lib] " ${lib})
-endforeach(lib)
+# FOREACH(lib ${XMLRPC_LIBRARIES})
+#	MESSAGE("[lib] " ${lib})
+# endforeach(lib)
 
 SET(CMAKE_MODULE_PATH ${egoilib_SOURCE_DIR}/cmake)
 

@@ -14,7 +14,7 @@ int main(int argc, char ** argv) {
 
         EgoiMap functionOptions;
         functionOptions["apikey"] =  new EgoiString(API_KEY);
-        EgoiMapList value = api->getLists(functionOptions);
+        EgoiMapList value = api->getSenders(functionOptions);
 
         std::cout << value;
 
