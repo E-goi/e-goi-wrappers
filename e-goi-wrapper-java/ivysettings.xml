@@ -4,9 +4,7 @@
 	<resolvers>
 		<chain name="main">
 			<ibiblio name="maven-restlet" m2compatible="true" root="http://maven.restlet.org" />
-			<!--url name="maven-restlet-url" m2compatible="true">
-				<artifact pattern="http://maven.restlet.org/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" />
-			</url-->
+			<ibiblio name="maven2" m2compatible="true"/>
 		</chain>
 	</resolvers>
 </ivy-settings>

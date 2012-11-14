@@ -9,6 +9,7 @@
 	<property name="axis.src.dir" value="${project.dir}/src-axis"/>
 	<property name="bin.dir" value="${project.dir}/bin"/>
 	<property name="lib.dir" value="${project.dir}/lib"/>
+	<property name="antlib.dir" value="${project.dir}/ant-libs"/>
 	<property name="dist.dir" value="${project.dir}/dist" />
 	<property name="dist.tar" value="${app.name}-${app.version}.tar.bz" />
 	<property name="release.dir" value="${project.dir}/release" />
@@ -20,11 +21,11 @@
 	</target>
 	
 	<target name="resolve" description="--> retrieve dependencies with ivy">
-		<ivy:retrieve conf="dev,deploy,ant" pattern="${lib.dir}/[conf]/[artifact]-[revision](-[classifier]).[ext]" />
+		<ivy:retrieve conf="dev,deploy" pattern="${lib.dir}/[conf]/[artifact]-[revision](-[classifier]).[ext]" />
 	</target>
 	
 	<path id="egoi.class.path">
-		<fileset dir="${lib.dir}">
+		<fileset dir="${lib.dir}}">
 			<include name="**/*.jar" />
 		</fileset>
 	</path>
@@ -42,7 +43,7 @@
 	</target>
 
 	<path id="ant.class.path">
-		<fileset dir="${lib.dir}/ant">
+		<fileset dir="${antlib.dir}">
 			<include name="**/*.jar" />
 		</fileset>
 	</path>

@@ -11,21 +11,9 @@
 		status="release">
 	</info>
 
-<!--
-
-<repository>  
-   <id>maven-restlet</id>  
-   <name>Public online Restlet repository</name>  
-   <url>http://maven.restlet.org</url>  
-</repository>  
-     
-
--->
-
 	<configurations>
 		<conf name="deploy" description="Deployment Libraries" />
 		<conf name="dev" description="Development Libraries" />
-		<conf name="ant" description="Ant Libraries" />
 	</configurations>
 
 	<dependencies>
@@ -46,24 +34,23 @@
 		
 		<dependency org="com.sun.jersey" name="jersey-client" rev="1.9.1" conf="dev, deploy->default" />
 		
-		<dependency org="commons-logging" name="commons-logging" rev="1.1.1" conf="ant->default" />
-		<dependency org="commons-discovery" name="commons-discovery" rev="0.5" conf="ant->default" />
+		<dependency org="org.apache.axis" name="axis" rev="1.4" conf="dev, deploy->default" />
+		<dependency org="org.apache.axis" name="axis-ant" rev="1.4" conf="dev, deploy->default"/>
+		<dependency org="org.apache.axis" name="axis-jaxrpc" rev="1.4" conf="dev, deploy->default"/>
+		<dependency org="org.apache.axis" name="axis-saaj" rev="1.4" conf="dev, deploy->default"/>
 		
-		<dependency org="org.apache.axis" name="axis" rev="1.4" conf="dev, deploy, ant->default" />
-		<dependency org="org.apache.axis" name="axis-ant" rev="1.4" conf="ant->default"/>
-		<dependency org="org.apache.axis" name="axis-jaxrpc" rev="1.4" conf="ant->default"/>
-		<dependency org="org.apache.axis" name="axis-saaj" rev="1.4" conf="ant->default"/>
+		<dependency org="commons-logging" name="commons-logging" rev="1.1.1" conf="dev, deploy->default" />
+		<dependency org="commons-discovery" name="commons-discovery" rev="0.5" conf="dev, deploy->default" />
+		
 		
 		<!-- XML RPC -->
 		<dependency org="org.apache.xmlrpc" name="xmlrpc-client" rev="3.1.3" conf="dev, deploy->default"/>
-		
-		<dependency org="wsdl4j" name="wsdl4j" rev="1.6.2" conf="ant->default"/>
 		
 		<!-- REST -->
 		<dependency org="org.apache.cxf" name="cxf-rt-frontend-jaxrs" rev="2.6.2" conf="dev, deploy->default" />
 		<dependency org="org.restlet" name="org.restlet" rev="1.0.1" />
 
-		<dependency org="javax.mail" name="mail" rev="1.4.4" conf="ant, deploy, dev->default" />
+		<dependency org="javax.mail" name="mail" rev="1.4.4" conf="deploy, dev->default" />
 		
 		<!-- GSON -->
 		<dependency org="com.google.code.gson" name="gson" rev="2.3-SNAPSHOT" conf="dev, deploy->default"/>
