@@ -120,14 +120,159 @@ namespace Egoi
         ////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////
 
+        public EgoiMap addExtraField(EgoiMap arguments)
+        {
+            return decodeResultMap(proxy.addExtraField(encodeMap(arguments)));
+        }
+
+        public EgoiMap addSubscriber(EgoiMap arguments)
+        {
+            return decodeResultMap(proxy.addSubscriber(encodeMap(arguments)));
+        }
+
+        public EgoiMap addSubscriberBulk(EgoiMap arguments)
+        {
+            return decodeResultMap(proxy.addSubscriberBulk(encodeMap(arguments)));
+        }
+
+        public EgoiMap checklogin(EgoiMap arguments)
+        {
+            return decodeResultMap(proxy.checklogin(encodeMap(arguments)));
+        }
+
+        public EgoiMap createCampaignEmail(EgoiMap arguments)
+        {
+            return decodeResultMap(proxy.createCampaignEmail(encodeMap(arguments)));
+        }
+
+        public EgoiMap createCampaignFAX(EgoiMap arguments)
+        {
+            return decodeResultMap(proxy.createCampaignFAX(encodeMap(arguments)));
+        }
+
+        public EgoiMap createCampaignSMS(EgoiMap arguments)
+        {
+            return decodeResultMap(proxy.createCampaignSMS(encodeMap(arguments)));
+        }
+
+        public EgoiMap createCampaignVoice(EgoiMap arguments)
+        {
+            return decodeResultMap(proxy.createCampaignVoice(encodeMap(arguments)));
+        }
+
+        public EgoiMap createList(EgoiMap arguments)
+        {
+            return decodeResultMap(proxy.createList(encodeMap(arguments)));
+        }
+
+        public EgoiMap createSegment(EgoiMap arguments)
+        {
+            return decodeResultMap(proxy.createSegment(encodeMap(arguments)));
+        }
+
+        public EgoiMap deleteCampaign(EgoiMap arguments)
+        {
+            return decodeResultMap(proxy.deleteCampaign(encodeMap(arguments)));
+        }
+
+        public EgoiMap deleteSegment(EgoiMap arguments)
+        {
+            return decodeResultMap(proxy.deleteSegment(encodeMap(arguments)));
+        }
+
+        public EgoiMap editCampaignEmail(EgoiMap arguments)
+        {
+            return decodeResultMap(proxy.editCampaignEmail(encodeMap(arguments)));
+        }
+
+        public EgoiMap editCampaignSMS(EgoiMap arguments)
+        {
+            return decodeResultMap(proxy.editCampaignSMS(encodeMap(arguments)));
+        }
+
+        public EgoiMap editExtraField(EgoiMap arguments)
+        {
+            return decodeResultMap(proxy.editExtraField(encodeMap(arguments)));
+        }
+
+        public EgoiMap editSubscriber(EgoiMap arguments)
+        {
+            return decodeResultMap(proxy.editSubscriber(encodeMap(arguments)));
+        }
+
+        public EgoiMapList getCampaigns(EgoiMap arguments)
+        {
+            return decodeResultMapList(proxy.getCampaigns(encodeMap(arguments)));
+        }
+
+        public EgoiMap getClientData(EgoiMap arguments)
+        {
+            return decodeResultMap(proxy.getClientData(encodeMap(arguments)));
+        }
+
+        public EgoiMap getCredits(EgoiMap arguments)
+        {
+            return decodeResultMap(proxy.getCredits(encodeMap(arguments)));
+        }
+
         public EgoiMapList getLists(EgoiMap arguments)
         {
             return decodeResultMapList(proxy.getLists(encodeMap(arguments)));
         }
 
+        public EgoiMap getReport(EgoiMap arguments)
+        {
+            return decodeResultMap(proxy.getReport(encodeMap(arguments)));
+        }
+
+        public EgoiMapList getSegments(EgoiMap arguments)
+        {
+            return decodeResultMapList(proxy.getSegments(encodeMap(arguments)));
+        }
+
+        public EgoiMapList getSenders(EgoiMap arguments)
+        {
+            return decodeResultMapList(proxy.getSenders(encodeMap(arguments)));
+        }
+
         public EgoiMap getUserData(EgoiMap arguments)
         {
             return decodeResultMap(proxy.getUserData(encodeMap(arguments)));
+        }
+
+        public EgoiMap removeSubscriber(EgoiMap arguments)
+        {
+            return decodeResultMap(proxy.removeSubscriber(encodeMap(arguments)));
+        }
+
+        public EgoiMap sendCall(EgoiMap arguments)
+        {
+            return decodeResultMap(proxy.sendCall(encodeMap(arguments)));
+        }
+
+        public EgoiMap sendEmail(EgoiMap arguments)
+        {
+            return decodeResultMap(proxy.sendEmail(encodeMap(arguments)));
+        }
+
+        public EgoiMap sendFAX(EgoiMap arguments)
+        {
+            return decodeResultMap(proxy.sendFAX(encodeMap(arguments)));
+        }
+
+        public EgoiMap sendSMS(EgoiMap arguments)
+        {
+            return decodeResultMap(proxy.sendSMS(encodeMap(arguments)));
+        }
+
+        public EgoiMap subscriberData(EgoiMap arguments)
+        {
+            return decodeResultMap(proxy.subscriberData(encodeMap(arguments)));
+        }
+
+        public EgoiMap updateList(EgoiMap arguments)
+        {
+            return decodeResultMap(proxy.updateList(encodeMap(arguments)));
         }
 
     }

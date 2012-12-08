@@ -34,9 +34,8 @@ public class Main {
 			String fname = m.getName();
 			
 			StringBuilder s = new StringBuilder();
-			s.append("Egoi").append(ret).append(" EgoiApiXmlRpcImpl::").append(fname).append("(EgoiMap &functionOptions) const {\n");
-			s.append("\treturn invoke").append(ret).append("(\"").append(fname).append("\", functionOptions);\n");
-			s.append("}\n\n");
+			s.append("[XmlRpcMethod(\"").append(fname).append("\")]\n");
+			s.append("object ").append(fname).append("(XmlRpcStruct o);\n");
 
 			System.out.println(s);
 		}
