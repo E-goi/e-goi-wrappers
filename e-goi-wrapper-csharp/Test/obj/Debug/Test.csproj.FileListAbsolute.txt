@@ -1,0 +1,17 @@
+c:\Users\analuis\documents\visual studio 2012\Projects\EgoiApi\Test\bin\Debug\Test.exe.config
+c:\Users\analuis\documents\visual studio 2012\Projects\EgoiApi\Test\bin\Debug\Test.exe
+c:\Users\analuis\documents\visual studio 2012\Projects\EgoiApi\Test\bin\Debug\Test.pdb
+c:\Users\analuis\documents\visual studio 2012\Projects\EgoiApi\Test\obj\Debug\Test.exe
+c:\Users\analuis\documents\visual studio 2012\Projects\EgoiApi\Test\obj\Debug\Test.pdb
+c:\Users\analuis\documents\visual studio 2012\Projects\EgoiApi\Test\bin\Debug\CookComputing.XmlRpcV2.dll
+c:\Users\analuis\documents\visual studio 2012\Projects\EgoiApi\Test\bin\Debug\EgoiApi.dll
+c:\Users\analuis\documents\visual studio 2012\Projects\EgoiApi\Test\bin\Debug\EgoiApi.pdb
+c:\Users\analuis\documents\visual studio 2012\Projects\EgoiApi\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+Z:\e-goi-wrapper-csharp\Test\bin\Debug\Test.exe.config
+Z:\e-goi-wrapper-csharp\Test\obj\Debug\Test.exe
+Z:\e-goi-wrapper-csharp\Test\obj\Debug\Test.pdb
+Z:\e-goi-wrapper-csharp\Test\bin\Debug\Test.exe
+Z:\e-goi-wrapper-csharp\Test\bin\Debug\Test.pdb
+Z:\e-goi-wrapper-csharp\Test\bin\Debug\EgoiApi.dll
+Z:\e-goi-wrapper-csharp\Test\bin\Debug\EgoiApi.pdb
+Z:\e-goi-wrapper-csharp\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache

@@ -1,0 +1,11 @@
+c:\users\analuis\documents\visual studio 2012\Projects\EgoiApi\EgoiApi\bin\Debug\EgoiApi.dll
+c:\users\analuis\documents\visual studio 2012\Projects\EgoiApi\EgoiApi\bin\Debug\EgoiApi.pdb
+c:\users\analuis\documents\visual studio 2012\Projects\EgoiApi\EgoiApi\obj\Debug\EgoiApi.csprojResolveAssemblyReference.cache
+c:\users\analuis\documents\visual studio 2012\Projects\EgoiApi\EgoiApi\obj\Debug\EgoiApi.dll
+c:\users\analuis\documents\visual studio 2012\Projects\EgoiApi\EgoiApi\obj\Debug\EgoiApi.pdb
+c:\users\analuis\documents\visual studio 2012\Projects\EgoiApi\EgoiApi\bin\Debug\CookComputing.XmlRpcV2.dll
+Z:\e-goi-wrapper-csharp\EgoiApi\bin\Debug\EgoiApi.dll
+Z:\e-goi-wrapper-csharp\EgoiApi\bin\Debug\EgoiApi.pdb
+Z:\e-goi-wrapper-csharp\EgoiApi\obj\Debug\EgoiApi.csprojResolveAssemblyReference.cache
+Z:\e-goi-wrapper-csharp\EgoiApi\obj\Debug\EgoiApi.dll
+Z:\e-goi-wrapper-csharp\EgoiApi\obj\Debug\EgoiApi.pdb
