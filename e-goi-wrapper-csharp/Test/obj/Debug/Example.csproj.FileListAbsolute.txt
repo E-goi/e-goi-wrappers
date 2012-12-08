@@ -1,0 +1,8 @@
+Z:\e-goi-wrapper-csharp\Test\obj\Debug\Example.csprojResolveAssemblyReference.cache
+Z:\e-goi-wrapper-csharp\Test\obj\Debug\Test.exe
+Z:\e-goi-wrapper-csharp\Test\bin\Debug\Test.exe.config
+Z:\e-goi-wrapper-csharp\Test\bin\Debug\Test.exe
+Z:\e-goi-wrapper-csharp\Test\bin\Debug\Test.pdb
+Z:\e-goi-wrapper-csharp\Test\bin\Debug\EgoiApi.dll
+Z:\e-goi-wrapper-csharp\Test\bin\Debug\EgoiApi.pdb
+Z:\e-goi-wrapper-csharp\Test\obj\Debug\Test.pdb
