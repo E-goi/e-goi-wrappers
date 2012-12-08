@@ -1,0 +1,19 @@
+
+resolve:
+
+BUILD FAILED
+/home/luislobo/git/colibri-json/pt.egoi.colibri.server/server.build.xml:10: Problem: failed to create task or type antlib:org.apache.ivy.ant:retrieve
+Cause: The name is undefined.
+Action: Check the spelling.
+Action: Check that any custom tasks/types have been declared.
+Action: Check that any <presetdef>/<macrodef> declarations have taken place.
+No types or tasks have been defined in this namespace yet
+
+This appears to be an antlib declaration. 
+Action: Check that the implementing library exists in one of:
+        -/usr/share/ant/lib
+        -/home/luislobo/.ant/lib
+        -a directory added on the command line with the -lib argument
+
+
+Total time: 0 seconds
