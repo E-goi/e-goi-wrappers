@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using Egoi;
 using CookComputing.XmlRpc;
+using System.Net;
+using System.IO;
+using System.Xml.Linq;
+using Newtonsoft.Json;
 
 namespace Test
 {
@@ -13,7 +17,12 @@ namespace Test
             try
             {
                 EgoiMap arguments = new EgoiMap();
-                arguments.Add("apikey", "<api key>");
+                arguments.Add("apikey", "d7cdcc90c0547da5da90c3e14eeff180455c38a2");
+
+                EgoiApiRestImpl api = EgoiApiRestImpl.getInstance();
+                Console.WriteLine(api.buildUrl("getLists", arguments));
+
+                /*
                 EgoiApi api = EgoiApiFactory.getApi();
                 
                 // Obter os dados do utilizador da ApiKey
@@ -28,7 +37,7 @@ namespace Test
                     // Os tipos EgoiMap/EgoiMapList devolvem um output parecido com
                     // JSON no seu ToString()
                     Console.WriteLine(list);
-                }
+                }*/
 
             }
             catch (EgoiException e)

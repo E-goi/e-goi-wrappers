@@ -73,8 +73,8 @@ public abstract class AbstractRestEgoiApi extends AbstractEgoiApi {
 		 * {
 		 * 	"Egoi_Api" : {
 		 * 		"<method_name>" : {
-		 * 			"key0" : "value0",
-		 * 			"key1" : "value1",
+		 * 			"key_0" : "value0",
+		 * 			"key_1" : "value1",
 		 * 			...
 		 * 		}
 		 * 	}

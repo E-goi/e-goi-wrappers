@@ -30,8 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CookComputing.XmlRpcV2">
-      <HintPath>..\..\Dependencies\CookComputing.XmlRpcV2.dll</HintPath>
+    <Reference Include="CookComputing.XmlRpcV2, Version=3.0.0.0, Culture=neutral, PublicKeyToken=a7d6e17aa302004d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\CookComputing.XmlRpcV2.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Dependencies\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,6 +52,7 @@
     <Compile Include="EgoiMapList.cs" />
     <Compile Include="EgoiType.cs" />
     <Compile Include="Exceptions\EgoiException.cs" />
+    <Compile Include="Impl\Rest\EgoiApiRestImpl.cs" />
     <Compile Include="Impl\XmlRpc\EgoiApiProxy.cs" />
     <Compile Include="Impl\XmlRpc\EgoiApiXmlRpcImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
