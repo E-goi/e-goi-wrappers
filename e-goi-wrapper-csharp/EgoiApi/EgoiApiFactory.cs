@@ -8,7 +8,7 @@ namespace Egoi
 {
 
     public enum Protocol {
-        Default, XmlRpc        
+        Default, XmlRpc, Rest
     };
 
     public class EgoiApiFactory
@@ -26,6 +26,8 @@ namespace Egoi
                 default:
                 case Protocol.XmlRpc:
                     return EgoiApiXmlRpcImpl.getInstance();
+                case Protocol.Rest:
+                    return EgoiApiRestImpl.getInstance();
             }
         }
 

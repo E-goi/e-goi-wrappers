@@ -17,13 +17,10 @@ namespace Test
             try
             {
                 EgoiMap arguments = new EgoiMap();
-                arguments.Add("apikey", "d7cdcc90c0547da5da90c3e14eeff180455c38a2");
+                arguments.Add("apikey", "<api key>");
 
-                EgoiApiRestImpl api = EgoiApiRestImpl.getInstance();
-                Console.WriteLine(api.buildUrl("getLists", arguments));
-
-                /*
-                EgoiApi api = EgoiApiFactory.getApi();
+                // Default is XmlRpc, Rest is also available
+                EgoiApi api = EgoiApiFactory.getApi(Protocol.Default);
                 
                 // Obter os dados do utilizador da ApiKey
                 EgoiMap userData = api.getUserData(arguments);
@@ -37,7 +34,7 @@ namespace Test
                     // Os tipos EgoiMap/EgoiMapList devolvem um output parecido com
                     // JSON no seu ToString()
                     Console.WriteLine(list);
-                }*/
+                }
 
             }
             catch (EgoiException e)
