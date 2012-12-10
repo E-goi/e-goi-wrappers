@@ -11,13 +11,23 @@
 	<property name="lib.dir" value="${project.dir}/lib"/>
 	<property name="antlib.dir" value="${project.dir}/ant-libs"/>
 	<property name="dist.dir" value="${project.dir}/dist" />
-	<property name="dist.tar" value="${app.name}-${app.version}.tar.bz" />
+	<property name="dist.name" value="${app.name}-${app.version}" />
 	<property name="release.dir" value="${project.dir}/release" />
+	<property name="readme.file" value="${project.dir}/README.txt" />
 	<property name="includeantruntime" value="true"/>
 	
 	<target name="clean">
 		<delete dir="${lib.dir}" /><!-- ivy files -->
 		<delete dir="${bin.dir}" />
+		<delete dir="${dist.dir}" />
+		<delete dir="${release.dir}" />
+	</target>
+	
+	<target name="prepare">
+		<mkdir dir="${lib.dir}"/>
+		<mkdir dir="${dist.dir}"/>
+		<mkdir dir="${release.dir}"/>
+		<mkdir dir="${bin.dir}"/>
 	</target>
 	
 	<target name="resolve" description="--> retrieve dependencies with ivy">
@@ -25,12 +35,12 @@
 	</target>
 	
 	<path id="egoi.class.path">
-		<fileset dir="${lib.dir}}">
+		<fileset dir="${lib.dir}">
 			<include name="**/*.jar" />
 		</fileset>
 	</path>
 	
-	<target name="compile" depends="resolve">
+	<target name="compile" depends="resolve, prepare">
 		<mkdir dir="${bin.dir}" />
 		
 		<javac includeantruntime="${includeantruntime}" srcdir="${axis.src.dir}" destdir="${bin.dir}" source="1.6" target="1.6" debug="on">
@@ -77,14 +87,21 @@
 	
 	<target name="dist" depends="jar+src">
 		<!-- /lib -->
+		<copy todir="${dist.dir}" file="${readme.file}" />
 		<copy todir="${dist.dir}/dependencies">
 			<fileset dir="${lib.dir}/deploy"/>
 		</copy>
 	</target>
 	
 	<target name="package" depends="dist">
-		<tar destfile="${release.dir}/${dist.tar}" compression="bzip2">
-			<tarfileset dir="${dist.dir}" prefix="${app.name}-${app.version}"/>
+		<zip destfile="${release.dir}/${dist.name}.zip">
+			<zipfileset dir="${dist.dir}" prefix="${dist.name}" />
+		</zip>
+		<tar destfile="${release.dir}/${dist.name}.tar.bz" compression="bzip2">
+			<tarfileset dir="${dist.dir}" prefix="${dist.name}"/>
+		</tar>
+		<tar destfile="${release.dir}/${dist.name}.tar.gz" compression="gzip">
+			<tarfileset dir="${dist.dir}" prefix="${dist.name}"/>
 		</tar>
 	</target>
 

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="e-goi-wrapper-asp" default="dist">
+
+	<import file="../common.xml" />
+
+	<property name="app.name" value="e-goi-wrapper-asp"/>
+	<property name="app.version" value="${e-goi-wrapper-asp.version}"/>
+
+	<property name="project.dir" value="."/>
+	<property name="dist.dir" value="${project.dir}/dist" />
+	<property name="dist.name" value="${app.name}-${app.version}" />
+	<property name="release.dir" value="${project.dir}/release" />
+	<property name="readme.file" value="${project.dir}/README.txt" />
+	<property name="includeantruntime" value="true"/>
+
+	<target name="clean">
+		<delete dir="${dist.dir}" />
+		<delete dir="${release.dir}" />
+	</target>
+
+	<target name="prepare">
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${release.dir}" />
+	</target>
+
+	<!-- =============================================================================== -->
+	<!-- == Wrapper Stuff ============================================================== -->
+	<!-- =============================================================================== -->
+
+	<target name="dist" depends="prepare">
+		<!-- /lib -->
+		<copy todir="${dist.dir}" file="${readme.file}" />
+		<copy todir="${dist.dir}">
+			<fileset dir="${project.dir}" includes="*.asp" />
+		</copy>
+	</target>
+	
+	<target name="package" depends="dist">
+		<zip destfile="${release.dir}/${dist.name}.zip">
+			<zipfileset dir="${dist.dir}" prefix="${dist.name}" />
+		</zip>
+		<tar destfile="${release.dir}/${dist.name}.tar.bz" compression="bzip2">
+			<tarfileset dir="${dist.dir}" prefix="${dist.name}"/>
+		</tar>
+		<tar destfile="${release.dir}/${dist.name}.tar.gz" compression="gzip">
+			<tarfileset dir="${dist.dir}" prefix="${dist.name}"/>
+		</tar>
+	</target>
+
+</project>

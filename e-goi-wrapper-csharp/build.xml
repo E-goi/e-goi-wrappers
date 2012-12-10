@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="e-goi-wrapper-php" default="dist">
+
+	<import file="../common.xml" />
+
+	<property name="app.name" value="e-goi-wrapper-php"/>
+	<property name="app.version" value="${e-goi-wrapper-php.version}"/>
+
+	<property name="project.dir" value="."/>
+	<property name="dist.dir" value="${project.dir}/dist" />
+	<property name="dist.name" value="${app.name}-${app.version}" />
+	<property name="release.dir" value="${project.dir}/release" />
+	<property name="readme.file" value="${project.dir}/README.txt" />
+	<property name="includeantruntime" value="true"/>
+
+	<target name="clean">
+		<delete dir="${dist.dir}" />
+		<delete dir="${release.dir}" />
+	</target>
+
+	<target name="prepare">
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${release.dir}" />
+	</target>
+
+	<!-- =============================================================================== -->
+	<!-- == Wrapper Stuff ============================================================== -->
+	<!-- =============================================================================== -->
+
+	<target name="dist" depends="prepare">
+		<!-- /lib -->
+		<copy todir="${dist.dir}" file="${readme.file}" />
+		<copy todir="${dist.dir}" file="example.php" />
+		<copy todir="${dist.dir}/Egoi">
+			<fileset dir="${project.dir}/Egoi" />
+		</copy>
+		<copy todir="${dist.dir}/Zend">
+			<fileset dir="${project.dir}/Zend" />
+		</copy>
+	</target>
+	
+	<target name="package" depends="dist">
+		<zip destfile="${release.dir}/${dist.name}.zip">
+			<zipfileset dir="${dist.dir}" prefix="${dist.name}" />
+		</zip>
+	</target>
+
+</project>

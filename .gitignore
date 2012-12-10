@@ -3,3 +3,7 @@ e-goi-wrapper-java/bin/
 e-goi-wrapper-java/dist/
 e-goi-wrapper-java/release/
 e-goi-wrapper-cpp/build/
+e-goi-wrapper-csharp/EgoiApi/bin/
+e-goi-wrapper-csharp/EgoiApi/obj/
+e-goi-wrapper-csharp/Test/bin/
+e-goi-wrapper-csharp/Test/obj/
