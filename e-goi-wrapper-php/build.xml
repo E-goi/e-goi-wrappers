@@ -50,5 +50,20 @@
 			<tarfileset dir="${dist.dir}" prefix="${dist.name}"/>
 		</tar>
 	</target>
+	
+	<target name="upload" depends="package">
+		<input message="Username: " addproperty="gcupload.username" />
+		<input message="Password: " addproperty="gcupload.password" >
+			<handler type="secure" />
+		</input>
+		<gcupload 
+			username="${gcupload.username}" 
+			password="${gcupload.password}" 
+			projectname="${gcupload.project}" 
+			filename="${release.dir}/${dist.name}.zip" 
+			targetfilename="${dist.name}.zip"
+			summary="Version ${app.version} of ${app.name}"
+			labels="Featured" />
+	</target>
 
 </project>

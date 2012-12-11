@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="e-goi-wrapper-php" default="dist">
+<project name="e-goi-wrapper-csharp" default="dist">
 
 	<import file="../common.xml" />
 
-	<property name="app.name" value="e-goi-wrapper-php"/>
-	<property name="app.version" value="${e-goi-wrapper-php.version}"/>
+	<property name="app.name" value="e-goi-wrapper-csharp"/>
+	<property name="app.version" value="${e-goi-wrapper-csharp.version}"/>
 
 	<property name="project.dir" value="."/>
+	<property name="sample.project.dir" value="${project.dir}/SampleProject"/>
+	<property name="api.project.dir" value="${project.dir}/EgoiApiProject"/>
 	<property name="dist.dir" value="${project.dir}/dist" />
 	<property name="dist.name" value="${app.name}-${app.version}" />
 	<property name="release.dir" value="${project.dir}/release" />
@@ -28,21 +30,91 @@
 	<!-- =============================================================================== -->
 
 	<target name="dist" depends="prepare">
-		<!-- /lib -->
-		<copy todir="${dist.dir}" file="${readme.file}" />
-		<copy todir="${dist.dir}" file="example.php" />
-		<copy todir="${dist.dir}/Egoi">
-			<fileset dir="${project.dir}/Egoi" />
+		<!-- /source -->
+		<copy todir="${dist.dir}/${app.name}-source/" file="${readme.file}" />
+		<copy todir="${dist.dir}/${app.name}-source/">
+			<fileset dir="${api.project.dir}/">
+				<exclude name="**/bin/"/>
+				<exclude name="**/obj/"/>
+			</fileset>
 		</copy>
-		<copy todir="${dist.dir}/Zend">
-			<fileset dir="${project.dir}/Zend" />
+		
+		<!-- /sample -->
+		<copy todir="${dist.dir}/${app.name}-sample/">
+			<fileset dir="${sample.project.dir}/">
+				<exclude name="**/obj/"/>
+				<exclude name="**/bin/"/>
+			</fileset>
+		</copy>
+		
+		<!-- /sample binaries -->
+		<copy todir="${dist.dir}/${app.name}-sample-bin/">
+			<fileset dir="${sample.project.dir}/EgoiApiSample/bin/Debug/">
+				<include name="**/*.dll"/>
+				<include name="**/*.exe"/>
+			</fileset>
+		</copy>
+		
+		<!-- /lib -->
+		<copy todir="${dist.dir}/${app.name}/">
+			<fileset dir="${api.project.dir}/EgoiApi/bin/Debug/">
+				<include name="**/*.dll"/>
+			</fileset>
 		</copy>
 	</target>
 	
 	<target name="package" depends="dist">
 		<zip destfile="${release.dir}/${dist.name}.zip">
-			<zipfileset dir="${dist.dir}" prefix="${dist.name}" />
+			<zipfileset dir="${dist.dir}/${app.name}/" prefix="${dist.name}" />
 		</zip>
+		<zip destfile="${release.dir}/${dist.name}-source.zip">
+			<zipfileset dir="${dist.dir}/${app.name}-source/" prefix="${dist.name}-source" />
+		</zip>
+		<zip destfile="${release.dir}/${dist.name}-sample.zip">
+			<zipfileset dir="${dist.dir}/${app.name}-sample/" prefix="${dist.name}-sample" />
+		</zip>
+		<zip destfile="${release.dir}/${dist.name}-sample-bin.zip">
+			<zipfileset dir="${dist.dir}/${app.name}-sample-bin/" prefix="${dist.name}-sample-bin" />
+		</zip>
+	</target>
+	
+	<target name="upload" depends="package">
+		<input message="Username: " addproperty="gcupload.username" />
+		<input message="Password: " addproperty="gcupload.password" >
+			<handler type="secure" />
+		</input>
+		<gcupload 
+			username="${gcupload.username}" 
+			password="${gcupload.password}" 
+			projectname="${gcupload.project}" 
+			filename="${release.dir}/${dist.name}.zip" 
+			targetfilename="${dist.name}.zip"
+			summary="Version ${app.version} of ${app.name}"
+			labels="Featured" />
+		<gcupload 
+			username="${gcupload.username}" 
+			password="${gcupload.password}" 
+			projectname="${gcupload.project}" 
+			filename="${release.dir}/${dist.name}-source.zip" 
+			targetfilename="${dist.name}-source.zip"
+			summary="Version ${app.version} of ${app.name} source code"
+			labels="" />
+		<gcupload 
+			username="${gcupload.username}"
+			password="${gcupload.password}"
+			projectname="${gcupload.project}" 
+			filename="${release.dir}/${dist.name}-sample.zip" 
+			targetfilename="${dist.name}-sample.zip"
+			summary="Version ${app.version} of ${app.name}'s sample project"
+			labels="" />
+		<gcupload 
+			username="${gcupload.username}" 
+			password="${gcupload.password}" 
+			projectname="${gcupload.project}" 
+			filename="${release.dir}/${dist.name}-sample-bin.zip" 
+			targetfilename="${dist.name}-sample-bin.zip"
+			summary="Version ${app.version} of ${app.name}'s sample binary files (Windows 32-bit)"
+			labels="" />
 	</target>
 
 </project>

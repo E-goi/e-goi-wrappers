@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="e-goi-wrapper-cpp" default="dist">
+
+	<import file="../common.xml" />
+
+	<property name="app.name" value="e-goi-wrapper-cpp"/>
+	<property name="app.version" value="${e-goi-wrapper-cpp.version}"/>
+
+	<property name="project.dir" value="."/>
+	<property name="dist.dir" value="${project.dir}/dist" />
+	<property name="dist.name" value="${app.name}-${app.version}" />
+	<property name="release.dir" value="${project.dir}/release" />
+	<property name="readme.file" value="${project.dir}/README.txt" />
+	<property name="includeantruntime" value="true"/>
+
+	<target name="clean">
+		<delete dir="${dist.dir}" />
+		<delete dir="${release.dir}" />
+	</target>
+
+	<target name="prepare">
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${release.dir}" />
+	</target>
+
+	<!-- =============================================================================== -->
+	<!-- == Wrapper Stuff ============================================================== -->
+	<!-- =============================================================================== -->
+
+	<target name="dist" depends="prepare">
+		<!-- /lib -->
+		<copy todir="${dist.dir}" file="${readme.file}" />
+		<copy todir="${dist.dir}" file="config.h.in" />
+		<copy todir="${dist.dir}" file="CMakeLists.txt" />
+		<copy todir="${dist.dir}/src">
+			<fileset dir="${project.dir}/src" />
+		</copy>
+		<copy todir="${dist.dir}/test">
+			<fileset dir="${project.dir}/test" />
+		</copy>
+	</target>
+	
+	<target name="package" depends="dist">
+		<zip destfile="${release.dir}/${dist.name}.zip">
+			<zipfileset dir="${dist.dir}" prefix="${dist.name}" />
+		</zip>
+	</target>
+	
+	<target name="upload" depends="package">
+		<input message="Username: " addproperty="gcupload.username" />
+		<input message="Password: " addproperty="gcupload.password" >
+			<handler type="secure" />
+		</input>
+		<gcupload 
+			username="${gcupload.username}" 
+			password="${gcupload.password}" 
+			projectname="${gcupload.project}" 
+			filename="${release.dir}/${dist.name}.zip" 
+			targetfilename="${dist.name}.zip"
+			summary="Version ${app.version} of ${app.name}"
+			labels="Featured" />
+	</target>
+
+</project>

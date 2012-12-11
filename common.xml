@@ -9,4 +9,9 @@
 	<property name="e-goi-wrapper-perl.version" value="${app.main.version}" />
 	<property name="e-goi-wrapper-php.version" value="${app.main.version}" />
 	<property name="e-goi-wrapper-python.version" value="${app.main.version}" />
+	
+	<taskdef classname="net.bluecow.googlecode.ant.GoogleCodeUploadTask" classpath="path/to/ant-googlecode.jar" name="gcupload"/>
+
+	<property name="gcupload.project" value="e-goi-wrappers"/>
+
 </project>

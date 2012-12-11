@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:ivy="antlib:org.apache.ivy.ant" name="e-goi-wrapper-java" default="compile">
 
-	<property name="app.version" value="0.1"/>
+	<import file="../common.xml" />
+
 	<property name="app.name" value="e-goi-wrapper-java"/>
+	<property name="app.version" value="${e-goi-wrapper-java.version}"/>
 
 	<property name="project.dir" value="."/>
 	<property name="src.dir" value="${project.dir}/src"/>
@@ -14,6 +16,7 @@
 	<property name="dist.name" value="${app.name}-${app.version}" />
 	<property name="release.dir" value="${project.dir}/release" />
 	<property name="readme.file" value="${project.dir}/README.txt" />
+	<property name="readme.source.file" value="${project.dir}/README.Source.txt" />
 	<property name="includeantruntime" value="true"/>
 	
 	<target name="clean">
@@ -68,7 +71,7 @@
 	</target>
 	
 	<target name="jar+src" depends="compile">
-		<jar destfile="${dist.dir}/${app.name}-${app.version}.jar">
+		<jar destfile="${dist.dir}/${dist.name}/${app.name}-${app.version}.jar">
 			<fileset dir="${bin.dir}" />
 			<fileset dir="${src.dir}" />
 			<fileset dir="${axis.src.dir}" />
@@ -76,7 +79,7 @@
 	</target>
 
 	<target name="jar" depends="compile">
-		<jar destfile="${dist.dir}/${app.name}-${app.version}.jar">
+		<jar destfile="${dist.dir}/${dist.name}/${app.name}-${app.version}.jar">
 			<fileset dir="${bin.dir}" />
 		</jar>
 	</target>
@@ -87,22 +90,55 @@
 	
 	<target name="dist" depends="jar+src">
 		<!-- /lib -->
-		<copy todir="${dist.dir}" file="${readme.file}" />
-		<copy todir="${dist.dir}/dependencies">
+		<copy todir="${dist.dir}/${dist.name}" file="${readme.file}" />
+		<copy todir="${dist.dir}/${dist.name}/dependencies">
 			<fileset dir="${lib.dir}/deploy"/>
+		</copy>
+		
+		<!-- /source -->
+		<copy tofile="${dist.dir}/${dist.name}-source/README.txt" file="${readme.source.file}" />
+		<copy todir="${dist.dir}/${dist.name}-source">
+			<fileset dir="${project.dir}">
+				<exclude name="README*"/>
+				<exclude name="bin/"/>
+				<exclude name="dist/"/>
+				<exclude name="release/"/>
+				<exclude name="ant-libs/"/>
+				<exclude name="lib/"/>
+			</fileset>
 		</copy>
 	</target>
 	
 	<target name="package" depends="dist">
 		<zip destfile="${release.dir}/${dist.name}.zip">
-			<zipfileset dir="${dist.dir}" prefix="${dist.name}" />
+			<zipfileset dir="${dist.dir}/${dist.name}" prefix="${dist.name}" />
 		</zip>
-		<tar destfile="${release.dir}/${dist.name}.tar.bz" compression="bzip2">
-			<tarfileset dir="${dist.dir}" prefix="${dist.name}"/>
-		</tar>
-		<tar destfile="${release.dir}/${dist.name}.tar.gz" compression="gzip">
-			<tarfileset dir="${dist.dir}" prefix="${dist.name}"/>
-		</tar>
+		<zip destfile="${release.dir}/${dist.name}-source.zip">
+			<zipfileset dir="${dist.dir}/${dist.name}-source" prefix="${dist.name}" />
+		</zip>
+	</target>
+	
+	<target name="upload" depends="package">
+		<input message="Username: " addproperty="gcupload.username" />
+		<input message="Password: " addproperty="gcupload.password" >
+			<handler type="secure" />
+		</input>
+		<gcupload 
+			username="${gcupload.username}" 
+			password="${gcupload.password}" 
+			projectname="${gcupload.project}" 
+			filename="${release.dir}/${dist.name}.zip" 
+			targetfilename="${dist.name}.zip"
+			summary="Version ${app.version} of ${app.name}"
+			labels="Featured" />
+		<gcupload 
+			username="${gcupload.username}" 
+			password="${gcupload.password}" 
+			projectname="${gcupload.project}" 
+			filename="${release.dir}/${dist.name}-source.zip" 
+			targetfilename="${dist.name}-source.zip"
+			summary="Version ${app.version} of ${app.name}'s source code (Eclipse Project)"
+			labels="Featured" />
 	</target>
 
 </project>
