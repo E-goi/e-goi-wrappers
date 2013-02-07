@@ -33,10 +33,51 @@ namespace Egoi
         public String buildUrl(String method, EgoiMap values) {
 		    StringBuilder url = new StringBuilder(Url);
 		    url.Append("&method=").Append(method);
-		    foreach (String key in values.Keys)
-			    url.Append("&functionOptions[").Append(key).Append("]=").Append(values[key]);
+            url.Append("&").Append(prepareMapUrl("functionOptions", values));
 		    return url.ToString();
 	    }
+
+        public static String prepareMapUrl(String prepend, EgoiMap values)
+        {
+            StringBuilder q = new StringBuilder();
+            foreach (String key in values.Keys)
+            {
+                Object value = values[key];
+                String result = null;
+
+                String prefix = String.Format("{0}[{1}]", prepend, key);
+
+                if (value is EgoiMap)
+                {
+                    EgoiMap map = (EgoiMap)value;
+                    result = prepareMapUrl(prefix, map);
+                }
+                else if (value is EgoiMapList)
+                {
+                    EgoiMapList list = (EgoiMapList)value;
+                    result = prepareListUrl(prefix, list);
+                }
+                else
+                {
+                    result = String.Format("{0}={1}&", prefix, value.ToString());
+                }
+
+                q.Append(result);
+            }
+            return q.ToString();
+        }
+
+        private static String prepareListUrl(String prepend, EgoiMapList list)
+        {
+            StringBuilder q = new StringBuilder();
+            for (int i = 0; i < list.Count(); i++)
+            {
+                String prefix = String.Format("{0}[{1}]", prepend, i);
+                EgoiMap value = list[i];
+                q.Append(prepareMapUrl(prefix, value));
+            }
+            return q.ToString();
+        }
 
 	    protected EgoiType walkMap(Dictionary<string, object> map) {
 		    EgoiType r = null;
