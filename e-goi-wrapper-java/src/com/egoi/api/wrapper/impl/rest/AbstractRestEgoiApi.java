@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.Map;
 
 import com.egoi.api.wrapper.api.EgoiMap;
+import com.egoi.api.wrapper.api.EgoiMapList;
 import com.egoi.api.wrapper.api.EgoiType;
 import com.egoi.api.wrapper.api.exceptions.EgoiException;
 import com.egoi.api.wrapper.impl.AbstractEgoiApi;
@@ -29,9 +30,41 @@ public abstract class AbstractRestEgoiApi extends AbstractEgoiApi {
 	protected String buildUrl(String method, EgoiMap values) {
 		StringBuilder url = new StringBuilder(serviceUrl);
 		url.append("&method=").append(method);
-		for (String key : values.keySet())
-			url.append("&functionOptions[").append(key).append("]=").append(values.get(key));
+		url.append("&").append(prepareMapUrl("functionOptions", values));
 		return url.toString();
+	}
+
+	public static String prepareMapUrl(String prepend, EgoiMap values) {
+		StringBuilder q = new StringBuilder();
+		for(String key : values.keySet()) {
+			Object value = values.get(key);
+			String result = null;
+			
+			String prefix = String.format("%s[%s]", prepend, key);
+			
+			if (value instanceof EgoiMap) {
+				EgoiMap map = (EgoiMap) value;
+				result = prepareMapUrl(prefix, map);
+			} else if (value instanceof EgoiMapList) {
+				EgoiMapList list = (EgoiMapList) value;
+				result = prepareListUrl(prefix, list);
+			} else {
+				result = String.format("%s=%s&", prefix, value.toString());
+			}
+			
+			q.append(result);
+		}
+		return q.toString();
+	}
+
+	private static String prepareListUrl(String prepend, EgoiMapList list) {
+		StringBuilder q = new StringBuilder();
+		for(int i=0; i<list.size(); i++) {
+			String prefix = String.format("%s[%s]", prepend, i);
+			EgoiMap value = list.get(i);
+			q.append(prepareMapUrl(prefix, value));
+		}
+		return q.toString();
 	}
 
 	protected String fetchResponse(String requestUrl) throws EgoiException {
