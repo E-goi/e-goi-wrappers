@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
-import sys
-import urllib
+from EgoiApi import decodeError
+import EgoiApi
 import json
+import urllib
 
 ApiName = 'Egoi_Api'
 
@@ -13,17 +14,46 @@ class EgoiApiRestImpl:
     def __init__(self, url):
         self.url = url
 
-    def createParams(self, method, params):
-        p = {'method' : method, 'type' : 'json'}
-        for k, v in params.items():
-            p['functionOptions[%s]' % k] = v
-        return p
+    def prepareMapUrl(self, prepend, params):
+        q = ""
+        for key in params.keys():
+            value = params[key]
+            result = ""
+            
+            prefix = "%s[%s]" % (prepend, key)
+            if isinstance(value, dict):
+                result = self.prepareMapUrl(prefix, value)
+            elif isinstance(value, list):
+                result = self.prepareListUrl(prefix, value)
+            else:
+                result = "%s=%s&" % (prefix, value)
+            
+            q = q + result
+        return q
+    
+    def prepareListUrl(self, prepend, values):
+        q = ""
+        i = 0
+        for value in values:
+            prefix = "%s[%s]" % (prepend, i)
+            q = q + self.prepareMapUrl(prefix, value)
+            i=i+1
+        return q
     
     def call(self, method, functionOptions):
-        p = urllib.urlencode(self.createParams(method, functionOptions))
+        p = 'method=%s&type=json&%s' % (method, self.prepareMapUrl('functionOptions', functionOptions))
         u = urllib.urlopen(self.url, p)
         j = json.loads(u.read())[ApiName][method]
-        return self.walkMap(j)
+        res = self.walkMap(j)
+        
+        if 'response' in res:
+            if res['response'] != 'OK':
+                raise EgoiApi.EgoiException(decodeError(res['response']))
+                  
+        if 'status' in res:
+            del res['status']
+        
+        return res
     
     def walkMap(self, m):
         if 'key_0' in m:
