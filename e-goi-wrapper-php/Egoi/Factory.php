@@ -9,7 +9,7 @@ if (!defined("EgoiApiFactory")) {
 	
 	abstract class EgoiApiFactory {
 	
-		function getApi($protocol) {
+		static function getApi($protocol) {
 			switch($protocol) {
 				case Protocol::Rest:
 					return new EgoiApiRestImpl();

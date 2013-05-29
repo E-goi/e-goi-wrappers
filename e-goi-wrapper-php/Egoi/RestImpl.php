@@ -47,10 +47,11 @@ if (!defined("EgoiApiRestImpl")) {
 		}
 		
 		function walkValues($map) {
-			foreach($map as $k => $v) {
-				if(is_array($v))
-					$map[$k] = $this->walkMap($v);
-			}
+			if(is_array($map))
+				foreach($map as $k => $v) {
+					if(is_array($v))
+						$map[$k] = $this->walkMap($v);
+				}
 			return $map;
 		}
 		
