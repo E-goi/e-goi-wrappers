@@ -7,4 +7,8 @@ e-goi-wrapper-csharp/EgoiApi/bin/
 e-goi-wrapper-csharp/EgoiApi/obj/
 e-goi-wrapper-csharp/Test/bin/
 e-goi-wrapper-csharp/Test/obj/
+
+/e-goi-wrapper-csharp/**/obj
+/e-goi-wrapper-csharp/**/bin
 .DS_Store
+**/*.pyc
