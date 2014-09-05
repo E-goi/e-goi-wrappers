@@ -27,7 +27,13 @@ if (!defined("EgoiApiRestImpl")) {
 		function call($method, $map) {
 			$params = $this->buildParams($method, $map);
 			$resp = $this->rpc->restGet(RestPath, $params);
-			$map = Zend_Json::decode($resp->getBody(), Zend_Json::TYPE_ARRAY);
+			$body = $resp->getBody();
+
+			// if body is empty return empty array
+			if(strlen($body) == 0)
+				return array();
+
+			$map = Zend_Json::decode($body, Zend_Json::TYPE_ARRAY);
 			$map = $map["Egoi_Api"][$method];
 			unset($map['status']);
 			return $this->walkMap($map);
