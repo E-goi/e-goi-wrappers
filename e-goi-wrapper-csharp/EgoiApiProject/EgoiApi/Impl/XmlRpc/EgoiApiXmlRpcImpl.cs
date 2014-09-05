@@ -49,6 +49,10 @@ namespace Egoi
 
                 else if (value is EgoiMapList)
                     ret[k] = encodeMapList(value as EgoiMapList);
+                else
+                    // convert to string
+                    ret[k] = value.ToString();
+
 
                 // ignore other types
 

@@ -4,7 +4,7 @@
 	
 	<property name="e-goi-wrapper-asp.version" value="${app.main.version}" />
 	<property name="e-goi-wrapper-cpp.version" value="${app.main.version}" />
-	<property name="e-goi-wrapper-csharp.version" value="${app.main.version}" />
+	<property name="e-goi-wrapper-csharp.version" value="${app.main.version}.1" />
 	<property name="e-goi-wrapper-java.version" value="${app.main.version}" />
 	<property name="e-goi-wrapper-perl.version" value="${app.main.version}" />
 	<property name="e-goi-wrapper-php.version" value="${app.main.version}" />
