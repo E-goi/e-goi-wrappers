@@ -13,3 +13,4 @@ e-goi-wrapper-csharp/TestApplication/
 /e-goi-wrapper-csharp/**/bin
 .DS_Store
 **/*.pyc
+*.suo
