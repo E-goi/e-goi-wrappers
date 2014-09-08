@@ -16,31 +16,31 @@ The currently implemented languages are:
     <th>Protocols Implemented</th>
   </tr>
   <tr>
-    <td>[PHP](#php-wrappers)</td>
+    <td>PHP</td>
     <td>XML-RPC, Rest, Soap</td>
   </tr>
   <tr>
-    <td>[Java](#java-wrappers)</td>
+    <td>Java</td>
     <td>XML-RPC, Rest, Soap</td>
   </tr>
   <tr>
-    <td>[ASP](#asp-wrappers)</td>
+    <td>ASP</td>
     <td>XML-RPC</td>
   </tr>
   <tr>
-    <td>[C#](#c-wrappers)</td>
+    <td>C#</td>
     <td>XML-RPC, Rest</td>
   </tr>
   <tr>
-    <td>[C++](#c-wrappers-1)</td>
+    <td>C++</td>
     <td>XML-RPC</td>
   </tr>
   <tr>
-    <td>[Perl](#perl-wrappers)</td>
+    <td>Perl</td>
     <td>XML-RPC, Soap</td>
   </tr>
   <tr>
-    <td>[Python](#python-wrappers)</td>
+    <td>Python</td>
     <td>XML-RPC, Rest</td>
   </tr>
 </table>
