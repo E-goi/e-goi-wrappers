@@ -14,3 +14,7 @@ e-goi-wrapper-csharp/TestApplication/
 .DS_Store
 **/*.pyc
 *.suo
+**/release/
+**/dist/
+
+/version.json

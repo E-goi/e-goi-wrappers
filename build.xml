@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="e-goi-wrapper-asp" default="dist">
+
+	<import file="common.xml" />
+	<target name="package">
+		<ant dir="e-goi-wrapper-asp" target="package" />
+		<ant dir="e-goi-wrapper-cpp" target="package" />
+		<ant dir="e-goi-wrapper-csharp" target="package" />
+		<ant dir="e-goi-wrapper-java" target="package" />
+		<ant dir="e-goi-wrapper-perl" target="package" />
+		<ant dir="e-goi-wrapper-php" target="package" />
+		<ant dir="e-goi-wrapper-python" target="package" />
+		<echo file="version.json" append="false">
+		{
+			"version": "${app.main.version}",
+			"filenames": {
+				"e-goi-wrapper-asp": [
+					"e-goi-wrapper-asp-${app.main.version}.zip"
+				],
+				"e-goi-wrapper-cpp": [
+					"e-goi-wrapper-cpp-${app.main.version}.zip"
+				],
+				"e-goi-wrapper-csharp": [
+					"e-goi-wrapper-csharp-${app.main.version}.zip",
+					"e-goi-wrapper-csharp-${app.main.version}-sample-bin.zip"
+				],
+				"e-goi-wrapper-java": [
+					"e-goi-wrapper-java-${app.main.version}.zip"
+				],
+				"e-goi-wrapper-perl": [
+					"e-goi-wrapper-perl-${app.main.version}.zip"
+				],
+				"e-goi-wrapper-php": [
+					"e-goi-wrapper-php-${app.main.version}.zip"
+				],
+				"e-goi-wrapper-python": [
+					"e-goi-wrapper-python-${app.main.version}.zip"
+				]
+			}
+		}
+		</echo>
+	</target>
+</project>

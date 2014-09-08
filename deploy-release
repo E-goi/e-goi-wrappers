@@ -3,15 +3,123 @@
 
 import requests
 import sys
+import json
+from os import path
+from os.path import expanduser
+import os
 
-BASE_URL='https://api.github.com'
+USER_HOME = expanduser("~")
 
-def list_releases(owner, repo):
-	url = '%s/repos/%s/%s/releases' % (BASE_URL, owner, repo)
+OWNER = 'e-goi'
+REPO = 'e-goi-wrappers'
+BASE_URL='https://api.github.com/repos/%s/%s' % (OWNER, REPO)
+UPLOAD_URL='https://uploads.github.com/repos/%s/%s' % (OWNER, REPO)
+
+TARGET_COMMITISH = "master"
+
+from subprocess import call
+
+def pwd():
+	return path.dirname(sys.argv[0])
+
+def get_version_info():
+	_pwd = pwd()
+	input_data = open("%s/version.json" % _pwd)
+	json_data = json.load(input_data)
+	input_data.close()
+	return json_data
+
+def dist_modules():
+	_pwd = pwd()
+	call(["ant", "-f", "%s/build.xml" % (_pwd), "package"])
+	return get_version_info()
+
+def list_releases():
+	url = '%s/releases' % (BASE_URL)
 	r = requests.get(url)
-	print r.text
+	return json.loads(r.text)
+
+def create_release(password, tag_name, target_commitish, name, body, draft = False, prerelease = False):
+	input_data = {
+		"tag_name": tag_name,
+		"target_commitish": target_commitish,
+		"name": name,
+		"body": body,
+		"draft": draft,
+		"prerelease": prerelease
+	}
+	url = '%s/releases' % (BASE_URL)
+	r = requests.post(url, data=json.dumps(input_data), auth=(OWNER, password))
+	return json.loads(r.text)
+
+def delete_release(password, release_id):
+	url = '%s/releases/%s' % (BASE_URL, release_id)
+	r = requests.delete(url)
+	return json.loads(r.text)
+
+def upload_asset(password, release_id, name, absolute_path):
+	url = '%s/releases/%s/assets?name=%s' % (UPLOAD_URL, release_id, filename)
+	headers = {'content-type': 'application/zip'}
+	with open(absolute_path, 'rb') as f:
+		r = requests.post(url, data=f, auth=(OWNER, password), headers=headers)
+		return json.loads(r.text)
+
+
+def read_creadentials():
+	f = open('%s/.githubrc' % USER_HOME)
+	for line in f:
+		split = line.split(':')
+		if split[0] == OWNER and split[1] == REPO:
+			return split[2].strip()
+	return None
+
+def delete_all_releases(password):
+	releases = list_releases()
+	for release in releases:
+		release_id = release['id']
+		print 'Delete relase id=%s (%s - %s)' % (release_id, release['tag_name'], release['body'])
+		delete_release(password, release_id)
+
+def version_to_tag(version):
+	return "v%s" % version
 
 if __name__ == "__main__":
-	owner = sys.argv[1]
-	repo = sys.argv[2]
-	list_releases(owner, repo)
+	password = read_creadentials()
+
+	if len(sys.argv) > 1:
+		if sys.argv[1] == 'package':
+			print dist_modules()
+		if sys.argv[1] == 'drop_all':
+			delete_all_releases(password)
+			sys.exit(0)
+
+	releases = list_releases()
+	release_map = {}
+	for release in releases:
+		release_map[release['tag_name']] = release
+
+	version_info = get_version_info()
+	version = version_info["version"]
+	tag_name = version_to_tag(version)
+
+	_pwd = pwd()
+
+	if tag_name in release_map:
+		print "Skipping creation of tag tag=%s (already exists in releases - id=%s)" % (tag_name, version)
+		release = release_map[tag_name]
+	else:
+		print "Created release %s (%s - %s)" % (release["id"], release["tag_name"], release["body"])
+		release = create_release(password, tag_name, TARGET_COMMITISH, "e-goi-wrappers-%s" % version, "E-Goi Wrappers (version %s)" % version)
+
+	for module in version_info["filenames"].keys():
+		filenames = version_info["filenames"][module]
+	
+		for filename in filenames:
+			absolute_path = "%s/%s/release/%s" % (_pwd, module, filename)
+			print module, absolute_path
+			if os.path.isfile(absolute_path):
+				print "Uploading %s to tag %s" % (absolute_path, tag_name)
+				asset = upload_asset(password, release["id"], filename, absolute_path)
+				print "Created asset %s (%s)" % (asset["id"], asset["url"])
+
+	
