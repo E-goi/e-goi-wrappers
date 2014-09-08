@@ -1,7 +1,7 @@
 Wrappers for the E-Goi API
 =================================================
 
-This projects contains the most common programming languages bindings for the [[http://www.e-goi.com/en/recursos/api/|E-Goi Online API]].
+This projects contains the most common programming languages bindings for the [E-Goi Online API](http://www.e-goi.com/en/recursos/api/).
 
 **NOTE**: Reference implementation for all languages is *XmlRpc*
 
