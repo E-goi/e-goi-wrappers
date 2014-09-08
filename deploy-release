@@ -1,0 +1,17 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import requests
+import sys
+
+BASE_URL='https://api.github.com'
+
+def list_releases(owner, repo):
+	url = '%s/repos/%s/%s/releases' % (BASE_URL, owner, repo)
+	r = requests.get(url)
+	print r.text
+
+if __name__ == "__main__":
+	owner = sys.argv[1]
+	repo = sys.argv[2]
+	list_releases(owner, repo)
