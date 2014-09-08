@@ -50,13 +50,13 @@ PHP Wrappers
 
 
   * [PHP Implementation](https://github.com/E-goi/e-goi-wrappers/releases/download/v0.3.1/e-goi-wrapper-php-0.3.1.zip)
-  * [Configuration and Usage](foo)
+  * [Configuration and Usage](https://github.com/E-goi/e-goi-wrappers/wiki/PHP---Configuration-and-Usage)
 
 Java Wrappers
 ---------------
 
   * [Java Implementation (libary)](https://github.com/E-goi/e-goi-wrappers/releases/download/v0.3.1/e-goi-wrapper-java-0.3.1.zip)
-  * [Configuration and Usage](foo)
+  * [Configuration and Usage](https://github.com/E-goi/e-goi-wrappers/wiki/Java---Configuration-and-Usage)
 
 ASP Wrappers
 ---------------
@@ -73,8 +73,8 @@ C# Wrappers
 C++ Wrappers
 ---------------
 
-  * [C++ Implementation Source (CMake based)](foo)
-  * [Sample code](https://github.com/E-goi/e-goi-wrappers/blob/master/e-goi-wrapper-perl/example.pl)
+  * [C++ Implementation Source (CMake based)](https://github.com/E-goi/e-goi-wrappers/releases/download/v0.3.1/e-goi-wrapper-cpp-0.3.1.zip)
+  * [Sample code](https://github.com/E-goi/e-goi-wrappers/blob/master/e-goi-wrapper-cpp/test/main.cpp)
   
 Perl Wrappers
 ---------------
