@@ -12,8 +12,8 @@ The currently implemented languages are:
 
 <table>
   <tr>
-    <td>__Language__</td>
-    <td>__Protocols Implemented__</td>
+    <th>Language</th>
+    <th>Protocols Implemented</th>
   </tr>
   <tr>
     <td>PHP</td>
