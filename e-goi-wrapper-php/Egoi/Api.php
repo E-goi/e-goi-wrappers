@@ -101,6 +101,21 @@ if (!defined("EgoiApi")) {
 
 
 		abstract public function updateList($map);
+		
+		
+		abstract public function getTags($map);
+		
+		
+		abstract public function addTag($map);
+		
+		
+		abstract public function deleteTag($map);
+		
+		
+		abstract public function attachTag($map);
+		
+		
+		abstract public function detachTag($map);
 
 	}
 
