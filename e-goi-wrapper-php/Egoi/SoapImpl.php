@@ -198,6 +198,36 @@ if (!defined("EgoiApiSoapImpl")) {
 			$fn = __FUNCTION__;
 			return $this->rpc->$fn($map);
 		}
+		
+		
+		function getTags($map) {
+			$fn = __FUNCTION__;
+			return $this->rpc->$fn($map);
+		}
+		
+		
+		function addTag($map) {
+			$fn = __FUNCTION__;
+			return $this->rpc->$fn($map);
+		}
+		
+		
+		function deleteTag($map) {
+			$fn = __FUNCTION__;
+			return $this->rpc->$fn($map);
+		}
+		
+		
+		function attachTag($map) {
+			$fn = __FUNCTION__;
+			return $this->rpc->$fn($map);
+		}
+		
+		
+		function detachTag($map) {
+			$fn = __FUNCTION__;
+			return $this->rpc->$fn($map);
+		}
 	}
 	
 }
