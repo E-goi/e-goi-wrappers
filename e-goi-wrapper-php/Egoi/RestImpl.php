@@ -214,6 +214,31 @@ if (!defined("EgoiApiRestImpl")) {
 		function updateList($map) {
 			return $this->call(__FUNCTION__, $map);
 		}
+		
+		
+		function getTags($map) {
+			return $this->call(__FUNCTION__, $map);
+		}
+		
+		
+		function addTag($map) {
+			return $this->call(__FUNCTION__, $map);
+		}
+		
+		
+		function deleteTag($map) {
+			return $this->call(__FUNCTION__, $map);
+		}
+		
+		
+		function attachTag($map) {
+			return $this->call(__FUNCTION__, $map);
+		}
+		
+		
+		function detachTag($map) {
+			return $this->call(__FUNCTION__, $map);
+		}
 	}
 	
 }
