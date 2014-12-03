@@ -117,6 +117,8 @@ namespace Egoi
 
             if (result is XmlRpcStruct[])
                 return decodeMapList(result as XmlRpcStruct[]);
+            else if (result is object[]) // occurs when response is empty
+                return new EgoiMapList();
             else
                 throw new EgoiException("The response is of unexpected type: " + result + ", expecting XmlRpcStruct[]");
         }
