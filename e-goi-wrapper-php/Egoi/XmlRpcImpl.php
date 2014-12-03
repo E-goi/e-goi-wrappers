@@ -166,6 +166,31 @@ if (!defined("EgoiApiXmlRpcImpl")) {
 		function updateList($map) {
 			return $this->rpc->call(__FUNCTION__, array($map));
 		}
+		
+		
+		function getTags($map) {
+			return $this->rpc->call(__FUNCTION__, array($map));
+		}
+		
+		
+		function addTag($map) {
+			return $this->rpc->call(__FUNCTION__, array($map));
+		}
+		
+		
+		function deleteTag($map) {
+			return $this->rpc->call(__FUNCTION__, array($map));
+		}
+		
+		
+		function attachTag($map) {
+			return $this->rpc->call(__FUNCTION__, array($map));
+		}
+		
+		
+		function detachTag($map) {
+			return $this->rpc->call(__FUNCTION__, array($map));
+		}
 	}
 	
 }
