@@ -49,41 +49,41 @@ PHP Wrappers
 ------------
 
 
-  * [PHP Implementation](https://github.com/E-goi/e-goi-wrappers/releases/download/v0.3.1/e-goi-wrapper-php-0.3.1.zip)
+  * [PHP Implementation](https://github.com/E-goi/e-goi-wrappers/releases/download/v0.3.2/e-goi-wrapper-php-0.3.2.zip)
   * [Configuration and Usage](https://github.com/E-goi/e-goi-wrappers/wiki/PHP---Configuration-and-Usage)
 
 Java Wrappers
 ---------------
 
-  * [Java Implementation (libary)](https://github.com/E-goi/e-goi-wrappers/releases/download/v0.3.1/e-goi-wrapper-java-0.3.1.zip)
+  * [Java Implementation (libary)](https://github.com/E-goi/e-goi-wrappers/releases/download/v0.3.2/e-goi-wrapper-java-0.3.2.zip)
   * [Configuration and Usage](https://github.com/E-goi/e-goi-wrappers/wiki/Java---Configuration-and-Usage)
 
 ASP Wrappers
 ---------------
 
-  * [ASP Implementation](https://github.com/E-goi/e-goi-wrappers/releases/download/v0.3.1/e-goi-wrapper-asp-0.3.1.zip)
+  * [ASP Implementation](https://github.com/E-goi/e-goi-wrappers/releases/download/v0.3.2/e-goi-wrapper-asp-0.3.2.zip)
   * [Sample code](https://github.com/E-goi/e-goi-wrappers/blob/master/e-goi-wrapper-asp/example.asp)
 
 C# Wrappers
 ---------------
 
-  * [C# Implementation (.dll files)](https://github.com/E-goi/e-goi-wrappers/releases/download/v0.3.1/e-goi-wrapper-csharp-0.3.1.zip)
-  * [C# Sample (binary files)](https://github.com/E-goi/e-goi-wrappers/releases/download/v0.3.1/e-goi-wrapper-csharp-0.3.1-sample-bin.zip)
+  * [C# Implementation (.dll files)](https://github.com/E-goi/e-goi-wrappers/releases/download/v0.3.2/e-goi-wrapper-csharp-0.3.2.zip)
+  * [C# Sample (binary files)](https://github.com/E-goi/e-goi-wrappers/releases/download/v0.3.2/e-goi-wrapper-csharp-0.3.2-sample-bin.zip)
 
 C++ Wrappers
 ---------------
 
-  * [C++ Implementation Source (CMake based)](https://github.com/E-goi/e-goi-wrappers/releases/download/v0.3.1/e-goi-wrapper-cpp-0.3.1.zip)
+  * [C++ Implementation Source (CMake based)](https://github.com/E-goi/e-goi-wrappers/releases/download/v0.3.2/e-goi-wrapper-cpp-0.3.2.zip)
   * [Sample code](https://github.com/E-goi/e-goi-wrappers/blob/master/e-goi-wrapper-cpp/test/main.cpp)
   
 Perl Wrappers
 ---------------
 
-  * [Perl Implementation](https://github.com/E-goi/e-goi-wrappers/releases/download/v0.3.1/e-goi-wrapper-perl-0.3.1.zip)
+  * [Perl Implementation](https://github.com/E-goi/e-goi-wrappers/releases/download/v0.3.2/e-goi-wrapper-perl-0.3.2.zip)
   * [Sample code](https://github.com/E-goi/e-goi-wrappers/blob/master/e-goi-wrapper-perl/example.pl)
   
 Python Wrappers
 ---------------
 
-  * [Python Implementation](https://github.com/E-goi/e-goi-wrappers/releases/download/v0.3.1/e-goi-wrapper-python-0.3.1.zip)
+  * [Python Implementation](https://github.com/E-goi/e-goi-wrappers/releases/download/v0.3.2/e-goi-wrapper-python-0.3.2.zip)
   * [Sample code](https://github.com/E-goi/e-goi-wrappers/blob/master/e-goi-wrapper-python/example.py)
