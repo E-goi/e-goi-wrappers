@@ -8,6 +8,8 @@ This projects contains the most common programming languages bindings for the [E
 Implementations
 ===============
 
+Please refer to the [releases page](https://github.com/E-goi/e-goi-wrappers/releases/) for all downloads.
+
 The currently implemented languages are:
 
 <table>
