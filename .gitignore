@@ -9,6 +9,8 @@ e-goi-wrapper-csharp/Test/bin/
 e-goi-wrapper-csharp/Test/obj/
 e-goi-wrapper-csharp/TestApplication/
 
+e-goi-wrapper-csharp/EgoiApiProject/TestApp/
+
 /e-goi-wrapper-csharp/**/obj
 /e-goi-wrapper-csharp/**/bin
 .DS_Store

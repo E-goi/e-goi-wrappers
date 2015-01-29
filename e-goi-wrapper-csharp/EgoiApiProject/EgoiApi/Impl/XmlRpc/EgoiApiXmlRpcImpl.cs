@@ -87,6 +87,15 @@ namespace Egoi
                     if (value is XmlRpcStruct[])
                         map[k] = decodeMapList(value as XmlRpcStruct[]);
 
+                    if(value is int)
+                        map[k] = value as int?;
+
+                    if (value is double)
+                        map[k] = value as double?;
+
+                    if (value is float)
+                        map[k] = value as float?;
+
                 }
             }
 
