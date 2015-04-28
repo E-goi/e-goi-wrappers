@@ -17,7 +17,7 @@ namespace Egoi
 
         private static EgoiApiRestImpl instance;
 
-        private static readonly string Url = "http://api.e-goi.com/v2/rest.php?type=json";
+        private static readonly string Url = "http://api.e-goi.com/v2/rest.php";
 
         private EgoiApiRestImpl()
         {
@@ -30,14 +30,16 @@ namespace Egoi
             return instance;
         }
 
-        public String buildUrl(String method, EgoiMap values) {
-		    StringBuilder url = new StringBuilder(Url);
-		    url.Append("&method=").Append(method);
-            url.Append("&").Append(prepareMapUrl("functionOptions", values));
+        public String buildPayload(String method, EgoiMap values) {
+		    StringBuilder url = new StringBuilder();
+		    url
+                .Append("type=json&")
+                .Append("method=").Append(method).Append("&")
+                .Append(prepareMapPayload("functionOptions", values));
 		    return url.ToString();
 	    }
 
-        public static String prepareMapUrl(String prepend, EgoiMap values)
+        public static String prepareMapPayload(String prepend, EgoiMap values)
         {
             StringBuilder q = new StringBuilder();
             foreach (String key in values.Keys)
@@ -50,12 +52,12 @@ namespace Egoi
                 if (value is EgoiMap)
                 {
                     EgoiMap map = (EgoiMap)value;
-                    result = prepareMapUrl(prefix, map);
+                    result = prepareMapPayload(prefix, map);
                 }
                 else if (value is EgoiMapList)
                 {
                     EgoiMapList list = (EgoiMapList)value;
-                    result = prepareListUrl(prefix, list);
+                    result = prepareListPayload(prefix, list);
                 }
                 else
                 {
@@ -67,14 +69,14 @@ namespace Egoi
             return q.ToString();
         }
 
-        private static String prepareListUrl(String prepend, EgoiMapList list)
+        private static String prepareListPayload(String prepend, EgoiMapList list)
         {
             StringBuilder q = new StringBuilder();
             for (int i = 0; i < list.Count(); i++)
             {
                 String prefix = String.Format("{0}[{1}]", prepend, i);
                 EgoiMap value = list[i];
-                q.Append(prepareMapUrl(prefix, value));
+                q.Append(prepareMapPayload(prefix, value));
             }
             return q.ToString();
         }
@@ -135,10 +137,21 @@ namespace Egoi
 		    return mapList;
 	    }
 
-        public string fetchResponse(string url)
+        public string fetchResponse(string payload)
         {
-            WebRequest request = WebRequest.Create(url);
-            request.Method = "GET";
+            WebRequest request = WebRequest.Create(Url);
+            request.Method = "POST";
+            request.ContentType = "application/x-www-form-urlencoded";
+
+
+            using (var stream = request.GetRequestStream())
+            {
+                using (var writer = new StreamWriter(stream))
+                {
+                    writer.Write(payload);
+                }
+            }
+            
             try
             {
                 WebResponse response = request.GetResponse();
@@ -151,14 +164,16 @@ namespace Egoi
             }
             catch (WebException e)
             {
-                throw new EgoiException("Error processing Rest request: " + e.Message);
+                StreamReader r = new StreamReader(e.Response.GetResponseStream());
+                String message = r.ReadToEnd();
+                throw new EgoiException("Error processing Rest request: " + message);
             }
         }
 
         public Dictionary<string, object> processResult(string method, EgoiMap arguments)
         {
-            string url = buildUrl(method, arguments);
-            string json = fetchResponse(url);
+            string payload = buildPayload(method, arguments);
+            string json = fetchResponse(payload);
             JavaScriptSerializer s = new JavaScriptSerializer();
 
             /**
