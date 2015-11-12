@@ -90,9 +90,11 @@ namespace Egoi
 			    foreach(String k in keys) {
 				    if(!k.StartsWith("key_"))
 					    continue;
-				
-				    Dictionary<string, object> v = map[k] as Dictionary<string, object>;
-				    mrl.Add(walkValues(new EgoiMap(v)));
+				    if (map [k] is Dictionary<string, object>) { 
+                        mrl.Add (walkValues (new EgoiMap (map [k] as Dictionary<string, object>)));
+                    } else {
+                        EgoiMap value = new EgoiMap (); value.Add ("value", map [k]); mrl.Add (value);
+                    }
 			    }
 			    r = mrl;
 		    } else {
