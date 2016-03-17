@@ -30,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CookComputing.XmlRpcV2, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\CookComputing.XmlRpcV2.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\Dependencies\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -45,6 +41,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="CookComputing.XmlRpcV2">
+      <HintPath>..\Dependencies\CookComputing.XmlRpcV2.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EgoiApi.cs" />
@@ -57,6 +57,7 @@
     <Compile Include="Impl\XmlRpc\EgoiApiProxy.cs" />
     <Compile Include="Impl\XmlRpc\EgoiApiXmlRpcImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="EgoiList.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

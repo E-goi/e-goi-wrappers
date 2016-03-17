@@ -120,6 +120,11 @@ if __name__ == "__main__":
 			if os.path.isfile(absolute_path):
 				print "Uploading %s to tag %s" % (absolute_path, tag_name)
 				asset = upload_asset(password, release["id"], filename, absolute_path)
-				print "Created asset %s (%s)" % (asset["id"], asset["url"])
+				if 'errors' in asset:
+					print asset['message']
+					for error in asset['errors']:
+						print "- %s" % error['code'] 
+				else:
+					print "Created asset %s (%s)" % (asset["id"], asset["url"])
 
 	

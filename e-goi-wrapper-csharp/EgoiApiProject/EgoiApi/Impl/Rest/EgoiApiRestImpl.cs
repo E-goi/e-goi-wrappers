@@ -8,6 +8,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
+using System.Web;
 
 namespace Egoi
 {
@@ -49,18 +50,16 @@ namespace Egoi
 
                 String prefix = String.Format("{0}[{1}]", prepend, key);
 
-                if (value is EgoiMap)
-                {
-                    EgoiMap map = (EgoiMap)value;
-                    result = prepareMapPayload(prefix, map);
-                }
-                else if (value is EgoiMapList)
-                {
-                    EgoiMapList list = (EgoiMapList)value;
-                    result = prepareListPayload(prefix, list);
-                }
-                else
-                {
+				if (value is EgoiMap) {
+					EgoiMap map = (EgoiMap)value;
+					result = prepareMapPayload (prefix, map);
+				} else if (value is EgoiMapList) {
+					EgoiMapList list = (EgoiMapList)value;
+					result = prepareListPayload (prefix, list);
+				} else if (value is EgoiList) {
+					EgoiList list = (EgoiList)value;
+					result = prepareGenericListPayload (prefix, list);
+				} else {
                     result = String.Format("{0}={1}&", prefix, value.ToString());
                 }
 
@@ -68,6 +67,19 @@ namespace Egoi
             }
             return q.ToString();
         }
+
+		private static String prepareGenericListPayload (String prepend, EgoiList list)
+		{
+			StringBuilder q = new StringBuilder();
+			for (int i = 0; i < list.Count(); i++)
+			{
+				String prefix = String.Format("{0}[{1}]", prepend, i);
+				Object value = list[i];
+				String enc = HttpUtility.UrlEncode (value.ToString ());
+				q.Append(String.Format("{0}={1}&", prefix, enc));
+			}
+			return q.ToString();
+		}
 
         private static String prepareListPayload(String prepend, EgoiMapList list)
         {
@@ -90,13 +102,13 @@ namespace Egoi
 			    foreach(String k in keys) {
 				    if(!k.StartsWith("key_"))
 					    continue;
-				    if (map [k] is Dictionary<string, object>) { 
+				    if (map [k] is Dictionary<string, object>) {
                         mrl.Add (walkValues (new EgoiMap (map [k] as Dictionary<string, object>)));
                     } else {
                         EgoiMap value = new EgoiMap (); value.Add ("value", map [k]); mrl.Add (value);
                     }
-			    }
-			    r = mrl;
+                }
+                r = mrl;
 		    } else {
 			    r = walkValues(new EgoiMap(map));
 		    }
