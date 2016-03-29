@@ -376,7 +376,10 @@ namespace Egoi
             return decodeMapResult("updateList", arguments);
         }
 
-
+		public EgoiMap addTag(EgoiMap arguments)
+		{
+			return decodeMapResult ("addTag", arguments);
+		}
 
     }
 }

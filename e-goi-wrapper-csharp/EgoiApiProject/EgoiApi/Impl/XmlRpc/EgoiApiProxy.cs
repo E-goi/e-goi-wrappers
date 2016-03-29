@@ -102,5 +102,11 @@ namespace Egoi
 
         [XmlRpcMethod("updateList")]
         object updateList(XmlRpcStruct o);
-    }
+
+		[XmlRpcMethod("addTag")]
+		object addTag(XmlRpcStruct o);
+
+		[XmlRpcMethod("addSegment")]
+		object addSegment(XmlRpcStruct o);
+	}
 }

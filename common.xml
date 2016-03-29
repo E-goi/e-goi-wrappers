@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="e-goi-wrappers" default="dist">
-	<property name="app.main.version" value="0.3.6"/>
+	<property name="app.main.version" value="0.3.6.1"/>
 	
 	<property name="e-goi-wrapper-asp.version" value="${app.main.version}" />
 	<property name="e-goi-wrapper-cpp.version" value="${app.main.version}" />

@@ -290,5 +290,15 @@ namespace Egoi
             return decodeResultMap(proxy.updateList(encodeMap(arguments)));
         }
 
+		public EgoiMap addTag(EgoiMap arguments)
+		{
+			return decodeMapResult (proxy.addTag(encodeMap(arguments)));
+		}
+
+		public EgoiMap addSegment(EgoiMap arguments)
+		{
+			return decodeMapResult (proxy.addSegment(encodeMap(arguments)));
+		}
+
     }
 }
