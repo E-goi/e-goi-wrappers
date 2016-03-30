@@ -66,5 +66,9 @@ namespace Egoi
 
         EgoiMap updateList(EgoiMap arguments);
 
+		EgoiMap addTag(EgoiMap arguments);
+
+        EgoiMap attachTag(EgoiMap arguments);
+
     }
 }

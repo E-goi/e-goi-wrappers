@@ -292,12 +292,12 @@ namespace Egoi
 
 		public EgoiMap addTag(EgoiMap arguments)
 		{
-			return decodeMapResult (proxy.addTag(encodeMap(arguments)));
+			return decodeResultMap(proxy.addTag(encodeMap(arguments)));
 		}
 
-		public EgoiMap addSegment(EgoiMap arguments)
+		public EgoiMap attachTag(EgoiMap arguments)
 		{
-			return decodeMapResult (proxy.addSegment(encodeMap(arguments)));
+			return decodeResultMap(proxy.attachTag(encodeMap(arguments)));
 		}
 
     }
