@@ -96,7 +96,7 @@ public abstract class AbstractRestEgoiApi extends AbstractEgoiApi {
 	}
 	
 	@SuppressWarnings("unchecked")
-	protected Map<String, ?> processResult(String method, EgoiMap arguments) throws EgoiException {
+	protected Map<String, Object> processResult(String method, EgoiMap arguments) throws EgoiException {
 		String url = buildUrl(method, arguments);
 		String json = fetchResponse(url);
 
@@ -114,8 +114,8 @@ public abstract class AbstractRestEgoiApi extends AbstractEgoiApi {
 		 * }
 		 * Will have trouble if the response changes
 		 */
-		Map<String, Map<String, Map<String, ?>>> m = gson.fromJson(json, Map.class);
-		Map<String, ?> map = m.get("Egoi_Api").get(method);
+		Map<String, Map<String, Map<String, Object>>> m = gson.fromJson(json, Map.class);
+		Map<String, Object> map = m.get("Egoi_Api").get(method);
 		
 		// Se o response existe e é uma String -> ERRO!
 		if(map.containsKey("response")) {
@@ -133,9 +133,16 @@ public abstract class AbstractRestEgoiApi extends AbstractEgoiApi {
 	}
 	
 	protected <T extends EgoiType> T decodeResult(String method, EgoiMap arguments, Class<T> proto) throws EgoiException {
-		Map<String, ?> map = processResult(method, arguments);
+		Map<String, Object> map = processResult(method, arguments);
 		EgoiType r = walkMap(map);
-		return r != null ? r.as(proto) : null;
+               
+		//return r != null ? r.as(proto) : null;
+                
+                try{
+                    return r != null ? r.as(proto) : null;
+                }catch(Exception ex){
+                    throw new EgoiException(EgoiException.idToMessage(((EgoiMap)r).get("ERROR").toString())); 
+                }
 	}
 	
 }
