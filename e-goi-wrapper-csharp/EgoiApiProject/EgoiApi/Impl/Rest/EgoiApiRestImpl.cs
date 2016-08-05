@@ -386,5 +386,10 @@ namespace Egoi
 			return decodeMapResult ("attachTag", arguments);
 		}
 
-    }
+		public EgoiMapList getTags(EgoiMap arguments)
+		{
+			return decodeMapListResult("getTags", arguments);
+		}
+
+	}
 }

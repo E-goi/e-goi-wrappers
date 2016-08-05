@@ -70,5 +70,7 @@ namespace Egoi
 
         EgoiMap attachTag(EgoiMap arguments);
 
+		EgoiMapList getTags(EgoiMap arguments);
+
     }
 }

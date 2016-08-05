@@ -108,5 +108,9 @@ namespace Egoi
 
 		[XmlRpcMethod("attachTag")]
 		object attachTag(XmlRpcStruct o);
+
+		[XmlRpcMethod("getTags")]
+		object getTags(XmlRpcStruct o);
+
 	}
 }

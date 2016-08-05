@@ -300,5 +300,10 @@ namespace Egoi
 			return decodeResultMap(proxy.attachTag(encodeMap(arguments)));
 		}
 
-    }
+		public EgoiMapList getTags(EgoiMap arguments)
+		{
+			return decodeResultMapList(proxy.getTags(encodeMap(arguments)));
+		}
+
+	}
 }
