@@ -401,7 +401,121 @@ namespace Egoi
 		public EgoiMapList getTags(EgoiMap arguments)
 		{
 			return decodeMapListResult("getTags", arguments);
-		}
+        }
 
-	}
+        public EgoiMapList getAutobots(EgoiMap arguments)
+        {
+            return decodeMapListResult("getAutobots", arguments);
+        }
+
+        public EgoiMap startAutobot(EgoiMap arguments)
+        {
+            return decodeMapResult("startAutobot", arguments);
+        }
+
+        public EgoiMap deleteTag(EgoiMap arguments)
+        {
+            return decodeMapResult("deleteTag", arguments);
+        }
+
+        public EgoiMap detachTag(EgoiMap arguments)
+        {
+            return decodeMapResult("detachTag", arguments);
+        }
+
+        public EgoiMap createCampaignGroup(EgoiMap arguments)
+        {
+            return decodeMapResult("createCampaignGroup", arguments);
+        }
+
+        public EgoiMap editCampaignGroup(EgoiMap arguments)
+        {
+            return decodeMapResult("editCampaignGroup", arguments);
+        }
+
+        public EgoiMapList getHeaderFooterTemplates(EgoiMap arguments)
+        {
+            return decodeMapListResult("getHeaderFooterTemplates", arguments);
+        }
+
+        public EgoiMapList getTemplates(EgoiMap arguments)
+        {
+            return decodeMapListResult("getTemplates", arguments);
+        }
+
+        public EgoiMap editApiCallback(EgoiMap arguments)
+        {
+            return decodeMapResult("editApiCallback", arguments);
+        }
+
+        public EgoiMapList getOperationsQueue(EgoiMap arguments)
+        {
+            return decodeMapListResult("getOperationsQueue", arguments);
+        }
+
+        public EgoiMapList getForms(EgoiMap arguments)
+        {
+            return decodeMapListResult("getForms", arguments);
+        }
+
+        public EgoiMapList getFormsSubmissions(EgoiMap arguments)
+        {
+            return decodeMapListResult("getFormsSubmissions", arguments);
+        }
+
+        public EgoiMap deleteExtraField(EgoiMap arguments)
+        {
+            return decodeMapResult("deleteExtraField", arguments);
+        }
+
+        public EgoiMap deleteList(EgoiMap arguments)
+        {
+            return decodeMapResult("deleteList", arguments);
+        }
+
+        public EgoiMapList getExtraFields(EgoiMap arguments)
+        {
+            return decodeMapListResult("getExtraFields", arguments);
+        }
+
+        public EgoiMap generateAdvancedReport(EgoiMap arguments)
+        {
+            return decodeMapResult("generateAdvancedReport", arguments);
+        }
+
+        public EgoiMapList getAdvancedReport(EgoiMap arguments)
+        {
+            return decodeMapListResult("getAdvancedReport", arguments);
+        }
+
+        public EgoiMap createSegmentAdvanced(EgoiMap arguments)
+        {
+            return decodeMapResult("createSegmentAdvanced", arguments);
+        }
+
+        public EgoiMap addCname(EgoiMap arguments)
+        {
+            return decodeMapResult("addCname", arguments);
+        }
+
+        public EgoiMap addSender(EgoiMap arguments)
+        {
+            return decodeMapResult("addSender", arguments);
+        }
+
+        public EgoiMap deleteSender(EgoiMap arguments)
+        {
+            return decodeMapResult("deleteSender", arguments);
+        }
+
+        public EgoiMap editSender(EgoiMap arguments)
+        {
+            return decodeMapResult("editSender", arguments);
+        }
+
+        public EgoiMap editSubscriberActivity(EgoiMap arguments)
+        {
+            return decodeMapResult("editSubscriberActivity", arguments);
+        }
+    }
 }
