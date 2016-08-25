@@ -126,6 +126,14 @@ namespace Egoi
 
             if (result is XmlRpcStruct[])
                 return decodeMapList(result as XmlRpcStruct[]);
+            else if (result is XmlRpcStruct)
+            {
+                EgoiMapList list = new EgoiMapList();
+
+                list.Add(decodeResultMap(result));
+
+                return list;
+            }
             else if (result is object[]) // occurs when response is empty
                 return new EgoiMapList();
             else

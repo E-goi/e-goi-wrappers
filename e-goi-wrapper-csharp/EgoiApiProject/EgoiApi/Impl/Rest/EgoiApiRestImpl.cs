@@ -215,7 +215,19 @@ namespace Egoi
         public EgoiMapList decodeMapListResult(String method, EgoiMap arguments)
         {
             Dictionary<string, object> result = processResult(method, arguments);
-            return walkMap(result) as EgoiMapList;
+
+            EgoiType et = walkMap(result);
+
+            if(et is EgoiMap)
+            {
+                EgoiMapList eml = new EgoiMapList();
+
+                eml.Add(et as EgoiMap);
+
+                et = eml;
+            }
+
+            return et as EgoiMapList;
         }
 
 
