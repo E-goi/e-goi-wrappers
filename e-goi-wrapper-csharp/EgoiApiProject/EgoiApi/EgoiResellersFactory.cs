@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace Egoi
 {
-    public class EgoiSlingshotFactory
+    public class EgoiResellersFactory
     {
 
-        public static EgoiSlingshot getApi()
+        public static EgoiResellers getApi()
         {
             return getApi(Protocol.Default);
         }
 
-        public static EgoiSlingshot getApi(Protocol protocol)
+        public static EgoiResellers getApi(Protocol protocol)
         {
             switch (protocol)
             {
                 default:
                 case Protocol.Rest:
-                    return EgoiSlingshotRestImpl.getInstance();
+                    return EgoiResellersRestImpl.getInstance();
             }
         }
 
