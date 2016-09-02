@@ -48,16 +48,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EgoiApi.cs" />
+    <Compile Include="EgoiSlingshotFactory.cs" />
     <Compile Include="EgoiApiFactory.cs" />
     <Compile Include="EgoiMap.cs" />
     <Compile Include="EgoiMapList.cs" />
+    <Compile Include="EgoiSlingshot.cs" />
     <Compile Include="EgoiType.cs" />
     <Compile Include="Exceptions\EgoiException.cs" />
+    <Compile Include="Impl\Rest\EgoiSlingshotRestImpl.cs" />
     <Compile Include="Impl\Rest\EgoiApiRestImpl.cs" />
     <Compile Include="Impl\XmlRpc\EgoiApiProxy.cs" />
     <Compile Include="Impl\XmlRpc\EgoiApiXmlRpcImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EgoiList.cs" />
+    <Compile Include="Protocol.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
