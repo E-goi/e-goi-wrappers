@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EgoiApi", "EgoiApi\EgoiApi.csproj", "{65EA45C2-5318-499A-A639-FC5BDF73DAF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EgoiSlingshotTest", "EgoiSlingshotTest\EgoiSlingshotTest.csproj", "{90B944C9-A83F-4111-94D6-67193BD5D5F9}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{65EA45C2-5318-499A-A639-FC5BDF73DAF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65EA45C2-5318-499A-A639-FC5BDF73DAF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65EA45C2-5318-499A-A639-FC5BDF73DAF0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{90B944C9-A83F-4111-94D6-67193BD5D5F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{90B944C9-A83F-4111-94D6-67193BD5D5F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{90B944C9-A83F-4111-94D6-67193BD5D5F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{90B944C9-A83F-4111-94D6-67193BD5D5F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
