@@ -109,8 +109,76 @@ namespace Egoi
 		[XmlRpcMethod("attachTag")]
 		object attachTag(XmlRpcStruct o);
 
-		[XmlRpcMethod("getTags")]
-		object getTags(XmlRpcStruct o);
+        [XmlRpcMethod("getTags")]
+        object getTags(XmlRpcStruct o);
 
-	}
+        [XmlRpcMethod("getAutobots")]
+        object getAutobots(XmlRpcStruct o);
+
+        [XmlRpcMethod("startAutobot")]
+        object startAutobot(XmlRpcStruct o);
+
+        [XmlRpcMethod("deleteTag")]
+        object deleteTag(XmlRpcStruct o);
+
+        [XmlRpcMethod("detachTag")]
+        object detachTag(XmlRpcStruct o);
+
+        [XmlRpcMethod("createCampaignGroup")]
+        object createCampaignGroup(XmlRpcStruct o);
+
+        [XmlRpcMethod("editCampaignGroup")]
+        object editCampaignGroup(XmlRpcStruct o);
+
+        [XmlRpcMethod("getHeaderFooterTemplates")]
+        object getHeaderFooterTemplates(XmlRpcStruct o);
+
+        [XmlRpcMethod("getTemplates")]
+        object getTemplates(XmlRpcStruct o);
+
+        [XmlRpcMethod("editApiCallback")]
+        object editApiCallback(XmlRpcStruct o);
+
+        [XmlRpcMethod("getOperationsQueue")]
+        object getOperationsQueue(XmlRpcStruct o);
+
+        [XmlRpcMethod("getForms")]
+        object getForms(XmlRpcStruct o);
+
+        [XmlRpcMethod("getFormsSubmissions")]
+        object getFormsSubmissions(XmlRpcStruct o);
+
+        [XmlRpcMethod("deleteExtraField")]
+        object deleteExtraField(XmlRpcStruct o);
+
+        [XmlRpcMethod("deleteList")]
+        object deleteList(XmlRpcStruct o);
+
+        [XmlRpcMethod("getExtraFields")]
+        object getExtraFields(XmlRpcStruct o);
+
+        [XmlRpcMethod("generateAdvancedReport")]
+        object generateAdvancedReport(XmlRpcStruct o);
+
+        [XmlRpcMethod("getAdvancedReport")]
+        object getAdvancedReport(XmlRpcStruct o);
+
+        [XmlRpcMethod("createSegmentAdvanced")]
+        object createSegmentAdvanced(XmlRpcStruct o);
+
+        [XmlRpcMethod("addCname")]
+        object addCname(XmlRpcStruct o);
+
+        [XmlRpcMethod("addSender")]
+        object addSender(XmlRpcStruct o);
+
+        [XmlRpcMethod("deleteSender")]
+        object deleteSender(XmlRpcStruct o);
+
+        [XmlRpcMethod("editSender")]
+        object editSender(XmlRpcStruct o);
+
+        [XmlRpcMethod("editSubscriberActivity")]
+        object editSubscriberActivity(XmlRpcStruct o);
+    }
 }

@@ -6,11 +6,6 @@ using System.Threading.Tasks;
 
 namespace Egoi
 {
-
-    public enum Protocol {
-        Default, XmlRpc, Rest
-    };
-
     public class EgoiApiFactory
     {
 
