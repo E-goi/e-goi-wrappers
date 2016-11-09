@@ -87,10 +87,7 @@ namespace Egoi
                     if (value is XmlRpcStruct[])
                         map[k] = decodeMapList(value as XmlRpcStruct[]);
 
-                    if (value is string[])
-                        map[k] = decodeMapList(value as string[]);
-
-                    if (value is int)
+                    if(value is int)
                         map[k] = value as int?;
 
                     if (value is double)
@@ -105,7 +102,6 @@ namespace Egoi
             return map;
         }
 
-
         private EgoiMap decodeResultMap(object result)
         {
             checkResult(result);
@@ -116,27 +112,11 @@ namespace Egoi
                 throw new EgoiException("The response is of unexpected type: " + result + ", expecting XmlRpcStruct");
         }
 
-        private EgoiMapList decodeMapList(object[] result)
+        private EgoiMapList decodeMapList(XmlRpcStruct[] result)
         {
             EgoiMapList list = new EgoiMapList();
-
-            if (result is XmlRpcStruct[])
-            {
-                foreach (XmlRpcStruct value in result)
-                    list.Add(decodeMap(value));
-            }
-
-            if (result is string[])
-            {
-                foreach (string value in result)
-                {
-                    EgoiMap mapString = new EgoiMap();
-                        mapString["value"] = value;
-                        list.Add(mapString);
-                   
-                }
-            }
-
+            foreach (XmlRpcStruct value in result)
+                list.Add(decodeMap(value));
             return list;
         }
 
@@ -308,9 +288,9 @@ namespace Egoi
             return decodeResultMap(proxy.sendSMS(encodeMap(arguments)));
         }
 
-        public EgoiMapList subscriberData(EgoiMap arguments)
+        public EgoiMap subscriberData(EgoiMap arguments)
         {
-            return decodeResultMapList(proxy.subscriberData(encodeMap(arguments)));
+            return decodeResultMap(proxy.subscriberData(encodeMap(arguments)));
         }
 
         public EgoiMap updateList(EgoiMap arguments)
