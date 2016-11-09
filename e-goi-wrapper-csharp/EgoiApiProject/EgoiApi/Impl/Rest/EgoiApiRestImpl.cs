@@ -378,9 +378,9 @@ namespace Egoi
             return decodeMapResult("sendSMS", arguments);
         }
 
-        public EgoiMap subscriberData(EgoiMap arguments)
+        public EgoiMapList subscriberData(EgoiMap arguments)
         {
-            return decodeMapResult("subscriberData", arguments);
+            return decodeMapListResult("subscriberData", arguments);
         }
 
         public EgoiMap updateList(EgoiMap arguments)
