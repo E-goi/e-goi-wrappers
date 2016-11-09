@@ -80,6 +80,11 @@ public class EgoiApiRestImpl extends AbstractRestEgoiApi {
 	}
 
 	@Override
+	public EgoiMap deleteList(EgoiMap arguments) throws EgoiException {
+		return decodeResult("deleteList", arguments, EgoiMap.class);
+	}
+
+	@Override
 	public EgoiMap deleteSegment(EgoiMap arguments) throws EgoiException {
 		return decodeResult("deleteSegment", arguments, EgoiMap.class);
 	}

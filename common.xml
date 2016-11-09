@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="e-goi-wrappers" default="dist">
-	<property name="app.main.version" value="0.3.6.9"/>
-	
+	<property name="app.main.version" value="0.3.6.10"/>
+
 	<property name="e-goi-wrapper-asp.version" value="${app.main.version}" />
 	<property name="e-goi-wrapper-cpp.version" value="${app.main.version}" />
 	<property name="e-goi-wrapper-csharp.version" value="${app.main.version}" />
@@ -9,7 +9,7 @@
 	<property name="e-goi-wrapper-perl.version" value="${app.main.version}" />
 	<property name="e-goi-wrapper-php.version" value="${app.main.version}" />
 	<property name="e-goi-wrapper-python.version" value="${app.main.version}" />
-	
+
 	<!--
 	<taskdef classname="net.bluecow.googlecode.ant.GoogleCodeUploadTask" classpath="path/to/ant-googlecode.jar" name="gcupload"/>
 

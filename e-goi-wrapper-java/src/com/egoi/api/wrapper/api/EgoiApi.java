@@ -63,6 +63,11 @@ public interface EgoiApi {
 	EgoiMap deleteCampaign(EgoiMap arguments) throws EgoiException;
 	
 	/* (non-Javadoc)
+	 * @see http://www.e-goi.pt/pt/recursos/api/deletelist/
+	 */
+	EgoiMap deleteList(EgoiMap arguments) throws EgoiException;
+	
+	/* (non-Javadoc)
 	 * @see http://www.e-goi.pt/pt/recursos/api/deletesegment/
 	 */
 	EgoiMap deleteSegment(EgoiMap arguments) throws EgoiException;

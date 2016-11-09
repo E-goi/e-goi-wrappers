@@ -138,6 +138,15 @@ public class EgoiApiSoap extends AbstractEgoiApi {
 	}
 
 	@Override
+	public EgoiMap deleteList(EgoiMap arguments) throws EgoiException {
+		try {
+			return decodeResult(api.deleteList(arguments), EgoiMap.class);
+		} catch (RemoteException e) {
+			throw new EgoiException(e.getMessage(), e);
+		}
+	}
+
+	@Override
 	public EgoiMap deleteSegment(EgoiMap arguments) throws EgoiException {
 		try {
 			return decodeResult(api.deleteSegment(arguments), EgoiMap.class);
