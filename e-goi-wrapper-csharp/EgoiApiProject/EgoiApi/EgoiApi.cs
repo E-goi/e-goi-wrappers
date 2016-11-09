@@ -125,7 +125,7 @@ namespace Egoi
         EgoiMap editSubscriberActivity(EgoiMap arguments);
         EgoiMap removeSubscriber(EgoiMap arguments);
 
-        EgoiMap subscriberData(EgoiMap arguments);
+        EgoiMapList subscriberData(EgoiMap arguments);
         #endregion
 
         #region API Methods - Tags
