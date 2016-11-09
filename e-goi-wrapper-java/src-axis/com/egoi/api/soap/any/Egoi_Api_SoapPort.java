@@ -98,6 +98,11 @@ public interface Egoi_Api_SoapPort extends java.rmi.Remote {
      * Apagar campanha
      */
     public java.lang.Object deleteCampaign(java.lang.Object functionOptions) throws java.rmi.RemoteException;
+    
+    /**
+     * Apagar lista
+     */
+    public java.lang.Object deleteList(java.lang.Object functionOptions) throws java.rmi.RemoteException;
 
     /**
      * Editar campanha de email

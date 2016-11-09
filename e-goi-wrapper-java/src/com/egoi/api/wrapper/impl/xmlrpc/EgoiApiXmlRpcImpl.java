@@ -78,6 +78,11 @@ public class EgoiApiXmlRpcImpl extends AbstractXmlRpcEgoiApi {
 	}
 
 	@Override
+	public EgoiMap deleteList(EgoiMap arguments) throws EgoiException {
+		return processRequest("deleteList", arguments, EgoiMap.class);
+	}
+
+	@Override
 	public EgoiMap deleteSegment(EgoiMap arguments) throws EgoiException {
 		return processRequest("deleteSegment", arguments, EgoiMap.class);
 	}

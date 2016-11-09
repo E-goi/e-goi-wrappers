@@ -4,16 +4,18 @@
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
-
 package com.egoi.api.soap.any;
 
+import java.rmi.RemoteException;
+
 public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implements com.egoi.api.soap.any.Egoi_Api_SoapPort {
+
     private java.util.Vector cachedSerClasses = new java.util.Vector();
     private java.util.Vector cachedSerQNames = new java.util.Vector();
     private java.util.Vector cachedSerFactories = new java.util.Vector();
     private java.util.Vector cachedDeserFactories = new java.util.Vector();
 
-    static org.apache.axis.description.OperationDesc [] _operations;
+    static org.apache.axis.description.OperationDesc[] _operations;
 
     static {
         _operations = new org.apache.axis.description.OperationDesc[40];
@@ -23,7 +25,7 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
         _initOperationDesc4();
     }
 
-    private static void _initOperationDesc1(){
+    private static void _initOperationDesc1() {
         org.apache.axis.description.OperationDesc oper;
         org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
@@ -138,7 +140,7 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
     }
 
-    private static void _initOperationDesc2(){
+    private static void _initOperationDesc2() {
         org.apache.axis.description.OperationDesc oper;
         org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
@@ -253,7 +255,7 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
     }
 
-    private static void _initOperationDesc3(){
+    private static void _initOperationDesc3() {
         org.apache.axis.description.OperationDesc oper;
         org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
@@ -368,7 +370,7 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
     }
 
-    private static void _initOperationDesc4(){
+    private static void _initOperationDesc4() {
         org.apache.axis.description.OperationDesc oper;
         org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
@@ -475,15 +477,26 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
         _operations[39] = oper;
 
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("deleteList");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "functionOptions"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "anyType"), java.lang.Object.class, false, false);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "anyType"));
+        oper.setReturnClass(java.lang.Object.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "return"));
+        oper.setStyle(org.apache.axis.constants.Style.RPC);
+        oper.setUse(org.apache.axis.constants.Use.ENCODED);
+        _operations[40] = oper;
+
     }
 
     public Egoi_Api_SoapBindingStub() throws org.apache.axis.AxisFault {
-         this(null);
+        this(null);
     }
 
     public Egoi_Api_SoapBindingStub(java.net.URL endpointURL, javax.xml.rpc.Service service) throws org.apache.axis.AxisFault {
-         this(service);
-         super.cachedEndpoint = endpointURL;
+        this(service);
+        super.cachedEndpoint = endpointURL;
     }
 
     public Egoi_Api_SoapBindingStub(javax.xml.rpc.Service service) throws org.apache.axis.AxisFault {
@@ -492,7 +505,7 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
         } else {
             super.service = service;
         }
-        ((org.apache.axis.client.Service)super.service).setTypeMappingVersion("1.2");
+        ((org.apache.axis.client.Service) super.service).setTypeMappingVersion("1.2");
     }
 
     protected org.apache.axis.client.Call createCall() throws java.rmi.RemoteException {
@@ -522,8 +535,7 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
                 _call.setProperty(key, super.cachedProperties.get(key));
             }
             return _call;
-        }
-        catch (java.lang.Throwable _t) {
+        } catch (java.lang.Throwable _t) {
             throw new org.apache.axis.AxisFault("Failure trying to get the Call object", _t);
         }
     }
@@ -541,22 +553,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object getCampaigns(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -572,22 +584,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object getUserData(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -603,22 +615,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object updateList(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -634,22 +646,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object getSenders(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -665,22 +677,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object getReport(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -696,22 +708,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object getClientData(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -727,22 +739,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object getCredits(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -758,22 +770,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object sendSMS(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -789,22 +801,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object sendEmail(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -820,22 +832,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object sendFAX(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -851,22 +863,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object sendCall(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -882,22 +894,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object editCampaignSMS(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -913,22 +925,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object createCampaignSMS(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -944,22 +956,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object createCampaignVoice(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -975,22 +987,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object createCampaignFAX(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -1006,22 +1018,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object createCampaignEmail(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -1037,22 +1049,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object deleteCampaign(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -1068,22 +1080,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object editCampaignEmail(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -1099,22 +1111,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object addSubscriberBulk(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -1130,22 +1142,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object addSubscriber(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -1161,22 +1173,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object removeSubscriber(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -1192,22 +1204,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object editSubscriber(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -1223,22 +1235,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object subscriberData(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -1254,22 +1266,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object createSegment(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -1285,22 +1297,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object deleteSegment(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -1316,22 +1328,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object getSegments(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -1347,22 +1359,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object getHeaderFooterTemplates(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -1378,22 +1390,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object createList(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -1409,22 +1421,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object getLists(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -1440,22 +1452,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object addExtraField(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -1471,22 +1483,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object deleteExtraField(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -1502,22 +1514,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object editExtraField(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -1533,22 +1545,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object createAccount(java.lang.Object functionOptions) throws java.rmi.RemoteException {
@@ -1564,22 +1576,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object afiliado(java.lang.Object[] functionOptions) throws java.rmi.RemoteException {
@@ -1595,22 +1607,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object getAllErrors() throws java.rmi.RemoteException {
@@ -1626,22 +1638,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object getError() throws java.rmi.RemoteException {
@@ -1657,22 +1669,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public boolean check_status() throws java.rmi.RemoteException {
@@ -1688,22 +1700,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return ((java.lang.Boolean) _resp).booleanValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Boolean) org.apache.axis.utils.JavaUtils.convert(_resp, boolean.class)).booleanValue();
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return ((java.lang.Boolean) _resp).booleanValue();
+                } catch (java.lang.Exception _exception) {
+                    return ((java.lang.Boolean) org.apache.axis.utils.JavaUtils.convert(_resp, boolean.class)).booleanValue();
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public boolean testEmailAddress(java.lang.String email) throws java.rmi.RemoteException {
@@ -1719,22 +1731,22 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {email});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{email});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return ((java.lang.Boolean) _resp).booleanValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Boolean) org.apache.axis.utils.JavaUtils.convert(_resp, boolean.class)).booleanValue();
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return ((java.lang.Boolean) _resp).booleanValue();
+                } catch (java.lang.Exception _exception) {
+                    return ((java.lang.Boolean) org.apache.axis.utils.JavaUtils.convert(_resp, boolean.class)).booleanValue();
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object checkUser(java.lang.Object[] functionOptions) throws java.rmi.RemoteException {
@@ -1750,22 +1762,54 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {functionOptions});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
+    }
+
+    @Override
+    public Object deleteList(Object functionOptions) throws RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[40]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("http://api.e-goi.com/v2/soap_any.php#deleteList");
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://api.e-goi.com/v2/soap_any.php", "deleteList"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{functionOptions});
+
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
+            }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
+        }
     }
 
 }
