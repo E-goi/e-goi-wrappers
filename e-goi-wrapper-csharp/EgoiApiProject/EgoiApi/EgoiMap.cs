@@ -31,7 +31,15 @@ namespace Egoi
             {
                 if (idx++ > 0)
                     s.Append(", ");
-                s.Append("\"").Append(k).Append("\"").Append(":").Append("\"").Append(this[k]).Append("\"");
+                s.Append("\"").Append(k).Append("\"").Append(":");
+
+                if ((this[k] is string))
+                    s.Append("\"");
+
+                s.Append(this[k]);
+
+                if ((this[k] is string))
+                    s.Append("\"");
             }
             s.Append("}");
             return s.ToString();
