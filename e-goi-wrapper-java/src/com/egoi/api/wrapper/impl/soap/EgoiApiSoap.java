@@ -308,4 +308,130 @@ public class EgoiApiSoap extends AbstractEgoiApi {
 		}
 	}
 
+        //NEW STUFF
+    @Override
+    public EgoiMapList getAutobots(EgoiMap arguments) throws EgoiException {
+        try {return decodeResult(api.getAutobots(arguments), EgoiMapList.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
+    }
+
+    @Override
+    public EgoiMap startAutobot(EgoiMap arguments) throws EgoiException {
+        try {return decodeResult(api.startAutobot(arguments), EgoiMap.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
+    }
+
+    @Override
+    public EgoiMap createCampaignGroup(EgoiMap arguments) throws EgoiException {
+        try {return decodeResult(api.createCampaignGroup(arguments), EgoiMap.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
+    }
+
+    @Override
+    public EgoiMap editCampaignGroup(EgoiMap arguments) throws EgoiException {
+        try {return decodeResult(api.editCampaignGroup(arguments), EgoiMap.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
+    }
+
+    @Override
+    public EgoiMapList getHeaderFooterTemplates(EgoiMap arguments) throws EgoiException {
+        try {return decodeResult(api.getHeaderFooterTemplates(arguments), EgoiMapList.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
+    }
+
+    @Override
+    public EgoiMapList getTemplates(EgoiMap arguments) throws EgoiException {
+        try {return decodeResult(api.getTemplates(arguments), EgoiMapList.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
+    }
+
+    @Override
+    public EgoiMap editApiCallback(EgoiMap arguments) throws EgoiException {
+        try {return decodeResult(api.editApiCallback(arguments), EgoiMap.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
+    }
+
+    @Override
+    public EgoiMapList getOperationsQueue(EgoiMap arguments) throws EgoiException {
+        try {return decodeResult(api.getOperationsQueue(arguments), EgoiMapList.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
+    }
+
+    @Override
+    public EgoiMapList getForms(EgoiMap arguments) throws EgoiException {
+        try {return decodeResult(api.getForms(arguments), EgoiMapList.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
+    }
+
+    @Override
+    public EgoiMapList getFormsSubmissions(EgoiMap arguments) throws EgoiException {
+        try {return decodeResult(api.getFormsSubmissions(arguments), EgoiMapList.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
+    }
+
+    @Override
+    public EgoiMap deleteExtraField(EgoiMap arguments) throws EgoiException {
+        try {return decodeResult(api.deleteExtraField(arguments), EgoiMap.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
+    }
+
+    @Override
+    public EgoiMapList getextrafields(EgoiMap arguments) throws EgoiException {
+        try {return decodeResult(api.getextrafields(arguments), EgoiMapList.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
+    }
+
+    @Override
+    public EgoiMap generateAdvancedReport(EgoiMap arguments) throws EgoiException {
+        try {return decodeResult(api.generateAdvancedReport(arguments), EgoiMap.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
+    }
+
+    @Override
+    public EgoiMapList getAdvancedReport(EgoiMap arguments) throws EgoiException {
+        try {return decodeResult(api.getAdvancedReport(arguments), EgoiMapList.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
+    }
+
+    @Override
+    public EgoiMap createSegmentAdvanced(EgoiMap arguments) throws EgoiException {
+        try {return decodeResult(api.createSegmentAdvanced(arguments), EgoiMap.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
+    }
+
+    @Override
+    public EgoiMap addCname(EgoiMap arguments) throws EgoiException {
+        try {return decodeResult(api.addCname(arguments), EgoiMap.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
+    }
+
+    @Override
+    public EgoiMap addSender(EgoiMap arguments) throws EgoiException {
+        try {return decodeResult(api.addSender(arguments), EgoiMap.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
+    }
+
+    @Override
+    public EgoiMap deleteSender(EgoiMap arguments) throws EgoiException {
+        try {return decodeResult(api.deleteSender(arguments), EgoiMap.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
+    }
+
+    @Override
+    public EgoiMap editSender(EgoiMap arguments) throws EgoiException {
+        try {return decodeResult(api.editSender(arguments), EgoiMap.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
+    }
+
+    @Override
+    public EgoiMapList getSubscriberActivity(EgoiMap arguments) throws EgoiException {
+        try {return decodeResult(api.getSubscriberActivity(arguments), EgoiMapList.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
+    }
+
+    @Override
+    public EgoiMap addTag(EgoiMap arguments) throws EgoiException {
+        try {return decodeResult(api.addTag(arguments), EgoiMap.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
+    }
+
+    @Override
+    public EgoiMap attachTag(EgoiMap arguments) throws EgoiException {
+        try {return decodeResult(api.attachTag(arguments), EgoiMap.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
+    }
+
+    @Override
+    public EgoiMap deleteTag(EgoiMap arguments) throws EgoiException {
+        try {return decodeResult(api.deleteTag(arguments), EgoiMap.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
+    }
+
+    @Override
+    public EgoiMap detachTag(EgoiMap arguments) throws EgoiException {
+        try {return decodeResult(api.detachTag(arguments), EgoiMap.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
+    }
+
+    @Override
+    public EgoiMapList getTags(EgoiMap arguments) throws EgoiException {
+        try {return decodeResult(api.getTags(arguments), EgoiMapList.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
+    }
+
 }

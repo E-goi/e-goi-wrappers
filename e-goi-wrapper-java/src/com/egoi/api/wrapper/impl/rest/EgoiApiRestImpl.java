@@ -174,4 +174,131 @@ public class EgoiApiRestImpl extends AbstractRestEgoiApi {
 		return decodeResult("updateList", arguments, EgoiMap.class);
 	}
 
+        
+        //NEW STUFF
+    @Override
+    public EgoiMapList getAutobots(EgoiMap arguments) throws EgoiException {
+        return decodeResult("getAutobots", arguments, EgoiMapList.class);
+    }
+
+    @Override
+    public EgoiMap startAutobot(EgoiMap arguments) throws EgoiException {
+        return decodeResult("startAutobot", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMap createCampaignGroup(EgoiMap arguments) throws EgoiException {
+        return decodeResult("createCampaignGroup", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMap editCampaignGroup(EgoiMap arguments) throws EgoiException {
+        return decodeResult("editCampaignGroup", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMapList getHeaderFooterTemplates(EgoiMap arguments) throws EgoiException {
+        return decodeResult("getHeaderFooterTemplates", arguments, EgoiMapList.class);
+    }
+
+    @Override
+    public EgoiMapList getTemplates(EgoiMap arguments) throws EgoiException {
+        return decodeResult("getTemplates", arguments, EgoiMapList.class);
+    }
+
+    @Override
+    public EgoiMap editApiCallback(EgoiMap arguments) throws EgoiException {
+        return decodeResult("editApiCallback", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMapList getOperationsQueue(EgoiMap arguments) throws EgoiException {
+        return decodeResult("getOperationsQueue", arguments, EgoiMapList.class);
+    }
+
+    @Override
+    public EgoiMapList getForms(EgoiMap arguments) throws EgoiException {
+        return decodeResult("getForms", arguments, EgoiMapList.class);
+    }
+
+    @Override
+    public EgoiMapList getFormsSubmissions(EgoiMap arguments) throws EgoiException {
+        return decodeResult("getFormsSubmissions", arguments, EgoiMapList.class);
+    }
+
+    @Override
+    public EgoiMap deleteExtraField(EgoiMap arguments) throws EgoiException {
+        return decodeResult("deleteExtraField", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMapList getextrafields(EgoiMap arguments) throws EgoiException {
+        return decodeResult("getextrafields", arguments, EgoiMapList.class);
+    }
+
+    @Override
+    public EgoiMap generateAdvancedReport(EgoiMap arguments) throws EgoiException {
+        return decodeResult("generateAdvancedReport", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMapList getAdvancedReport(EgoiMap arguments) throws EgoiException {
+        return decodeResult("getAdvancedReport", arguments, EgoiMapList.class);
+    }
+
+    @Override
+    public EgoiMap createSegmentAdvanced(EgoiMap arguments) throws EgoiException {
+        return decodeResult("createSegmentAdvanced", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMap addCname(EgoiMap arguments) throws EgoiException {
+        return decodeResult("addCname", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMap addSender(EgoiMap arguments) throws EgoiException {
+        return decodeResult("addSender", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMap deleteSender(EgoiMap arguments) throws EgoiException {
+        return decodeResult("deleteSender", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMap editSender(EgoiMap arguments) throws EgoiException {
+        return decodeResult("editSender", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMapList getSubscriberActivity(EgoiMap arguments) throws EgoiException {
+        return decodeResult("getSubscriberActivity", arguments, EgoiMapList.class);
+    }
+
+    @Override
+    public EgoiMap addTag(EgoiMap arguments) throws EgoiException {
+        return decodeResult("addTag", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMap attachTag(EgoiMap arguments) throws EgoiException {
+        return decodeResult("attachTag", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMap deleteTag(EgoiMap arguments) throws EgoiException {
+        return decodeResult("deleteTag", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMap detachTag(EgoiMap arguments) throws EgoiException {
+        return decodeResult("detachTag", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMapList getTags(EgoiMap arguments) throws EgoiException {
+        return decodeResult("getTags", arguments, EgoiMapList.class);
+    }
+
 }

@@ -4,10 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Users/manuelrocha/NetBeansProjects/e-goi-wrapper-java/src/com/egoi/api/wrapper/impl/rest/AbstractRestEgoiApi.java</file>
-            <file>file:/Users/manuelrocha/NetBeansProjects/e-goi-wrapper-java/src/com/egoi/api/wrapper/impl/xmlrpc/EgoiApiXmlRpcImpl.java</file>
-            <file>file:/Users/manuelrocha/NetBeansProjects/e-goi-wrapper-java/src/com/egoi/api/wrapper/impl/xmlrpc/AbstractXmlRpcEgoiApi.java</file>
             <file>file:/Users/manuelrocha/NetBeansProjects/e-goi-wrapper-java/src/com/egoi/api/wrapper/impl/AbstractEgoiApi.java</file>
-            <file>file:/Users/manuelrocha/NetBeansProjects/e-goi-wrapper-java/src/com/egoi/api/wrapper/impl/EgoiApiFactory.java</file>
+            <file>file:/Users/manuelrocha/NetBeansProjects/e-goi-wrapper-java/src/com/egoi/api/wrapper/impl/xmlrpc/AbstractXmlRpcEgoiApi.java</file>
         </group>
     </open-files>
 </project-private>

@@ -14,6 +14,8 @@ import com.egoi.api.wrapper.api.EgoiType;
 import com.egoi.api.wrapper.api.exceptions.EgoiException;
 import com.egoi.api.wrapper.impl.AbstractEgoiApi;
 import com.google.gson.Gson;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 public abstract class AbstractRestEgoiApi extends AbstractEgoiApi {
 
@@ -27,14 +29,14 @@ public abstract class AbstractRestEgoiApi extends AbstractEgoiApi {
 		this.serviceUrl = serviceUrl;
 	}
 	
-	protected String buildUrl(String method, EgoiMap values) {
+	protected String buildUrl(String method, EgoiMap values) throws EgoiException {
 		StringBuilder url = new StringBuilder(serviceUrl);
 		url.append("&method=").append(method);
 		url.append("&").append(prepareMapUrl("functionOptions", values));
 		return url.toString();
 	}
 
-	public static String prepareMapUrl(String prepend, EgoiMap values) {
+	public static String prepareMapUrl(String prepend, EgoiMap values) throws EgoiException {
 		StringBuilder q = new StringBuilder();
 		for(String key : values.keySet()) {
 			Object value = values.get(key);
@@ -49,7 +51,11 @@ public abstract class AbstractRestEgoiApi extends AbstractEgoiApi {
 				EgoiMapList list = (EgoiMapList) value;
 				result = prepareListUrl(prefix, list);
 			} else {
-				result = String.format("%s=%s&", prefix, value.toString());
+                            try {
+				result = String.format("%s=%s&", prefix, URLEncoder.encode(value.toString(), "UTF-8"));
+                            } catch (UnsupportedEncodingException e) {
+                                throw new EgoiException(e.getMessage(), e);
+                            }
 			}
 			
 			q.append(result);
@@ -57,7 +63,7 @@ public abstract class AbstractRestEgoiApi extends AbstractEgoiApi {
 		return q.toString();
 	}
 
-	private static String prepareListUrl(String prepend, EgoiMapList list) {
+	private static String prepareListUrl(String prepend, EgoiMapList list) throws EgoiException {
 		StringBuilder q = new StringBuilder();
 		for(int i=0; i<list.size(); i++) {
 			String prefix = String.format("%s[%s]", prepend, i);

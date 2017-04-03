@@ -172,4 +172,130 @@ public class EgoiApiXmlRpcImpl extends AbstractXmlRpcEgoiApi {
 		return processRequest("updateList", arguments, EgoiMap.class);
 	}
 
+        //NEW STUFF
+    @Override
+    public EgoiMapList getAutobots(EgoiMap arguments) throws EgoiException {
+        return processRequest("getAutobots", arguments, EgoiMapList.class);
+    }
+
+    @Override
+    public EgoiMap startAutobot(EgoiMap arguments) throws EgoiException {
+        return processRequest("startAutobot", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMap createCampaignGroup(EgoiMap arguments) throws EgoiException {
+        return processRequest("createCampaignGroup", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMap editCampaignGroup(EgoiMap arguments) throws EgoiException {
+        return processRequest("editCampaignGroup", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMapList getHeaderFooterTemplates(EgoiMap arguments) throws EgoiException {
+        return processRequest("getHeaderFooterTemplates", arguments, EgoiMapList.class);
+    }
+
+    @Override
+    public EgoiMapList getTemplates(EgoiMap arguments) throws EgoiException {
+        return processRequest("getTemplates", arguments, EgoiMapList.class);
+    }
+
+    @Override
+    public EgoiMap editApiCallback(EgoiMap arguments) throws EgoiException {
+        return processRequest("editApiCallback", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMapList getOperationsQueue(EgoiMap arguments) throws EgoiException {
+        return processRequest("getOperationsQueue", arguments, EgoiMapList.class);
+    }
+
+    @Override
+    public EgoiMapList getForms(EgoiMap arguments) throws EgoiException {
+        return processRequest("getForms", arguments, EgoiMapList.class);
+    }
+
+    @Override
+    public EgoiMapList getFormsSubmissions(EgoiMap arguments) throws EgoiException {
+        return processRequest("getFormsSubmissions", arguments, EgoiMapList.class);
+    }
+
+    @Override
+    public EgoiMap deleteExtraField(EgoiMap arguments) throws EgoiException {
+        return processRequest("deleteExtraField", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMapList getextrafields(EgoiMap arguments) throws EgoiException {
+        return processRequest("getextrafields", arguments, EgoiMapList.class);
+    }
+
+    @Override
+    public EgoiMap generateAdvancedReport(EgoiMap arguments) throws EgoiException {
+        return processRequest("generateAdvancedReport", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMapList getAdvancedReport(EgoiMap arguments) throws EgoiException {
+        return processRequest("getAdvancedReport", arguments, EgoiMapList.class);
+    }
+
+    @Override
+    public EgoiMap createSegmentAdvanced(EgoiMap arguments) throws EgoiException {
+        return processRequest("createSegmentAdvanced", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMap addCname(EgoiMap arguments) throws EgoiException {
+        return processRequest("addCname", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMap addSender(EgoiMap arguments) throws EgoiException {
+        return processRequest("addSender", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMap deleteSender(EgoiMap arguments) throws EgoiException {
+        return processRequest("deleteSender", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMap editSender(EgoiMap arguments) throws EgoiException {
+        return processRequest("editSender", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMapList getSubscriberActivity(EgoiMap arguments) throws EgoiException {
+        return processRequest("getSubscriberActivity", arguments, EgoiMapList.class);
+    }
+
+    @Override
+    public EgoiMap addTag(EgoiMap arguments) throws EgoiException {
+        return processRequest("addTag", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMap attachTag(EgoiMap arguments) throws EgoiException {
+        return processRequest("attachTag", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMap deleteTag(EgoiMap arguments) throws EgoiException {
+        return processRequest("deleteTag", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMap detachTag(EgoiMap arguments) throws EgoiException {
+        return processRequest("detachTag", arguments, EgoiMap.class);
+    }
+
+    @Override
+    public EgoiMapList getTags(EgoiMap arguments) throws EgoiException {
+        return processRequest("getTags", arguments, EgoiMapList.class);
+    }
+
 }

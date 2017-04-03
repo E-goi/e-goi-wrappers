@@ -214,5 +214,74 @@ public interface Egoi_Api_SoapPort extends java.rmi.Remote {
     /**
      * Internal Function
      */
-    public java.lang.Object checkUser(java.lang.Object[] functionOptions) throws java.rmi.RemoteException;
+    public java.lang.Object checkUser(java.lang.Object functionOptions) throws java.rmi.RemoteException;
+
+
+    public java.lang.Object getAutobots(java.lang.Object functionOptions) throws java.rmi.RemoteException;
+
+
+    public java.lang.Object startAutobot(java.lang.Object functionOptions) throws java.rmi.RemoteException;
+
+
+    public java.lang.Object createCampaignGroup(java.lang.Object functionOptions) throws java.rmi.RemoteException;
+
+
+    public java.lang.Object editCampaignGroup(java.lang.Object functionOptions) throws java.rmi.RemoteException;
+
+
+    public java.lang.Object getTemplates(java.lang.Object functionOptions) throws java.rmi.RemoteException;
+
+
+    public java.lang.Object editApiCallback(java.lang.Object functionOptions) throws java.rmi.RemoteException;
+
+
+    public java.lang.Object getOperationsQueue(java.lang.Object functionOptions) throws java.rmi.RemoteException;
+
+
+    public java.lang.Object getForms(java.lang.Object functionOptions) throws java.rmi.RemoteException;
+
+
+    public java.lang.Object getFormsSubmissions(java.lang.Object functionOptions) throws java.rmi.RemoteException;
+
+
+    public java.lang.Object getextrafields(java.lang.Object functionOptions) throws java.rmi.RemoteException;
+
+
+    public java.lang.Object generateAdvancedReport(java.lang.Object functionOptions) throws java.rmi.RemoteException;
+
+
+    public java.lang.Object getAdvancedReport(java.lang.Object functionOptions) throws java.rmi.RemoteException;
+
+
+    public java.lang.Object createSegmentAdvanced(java.lang.Object functionOptions) throws java.rmi.RemoteException;
+
+
+    public java.lang.Object addCname(java.lang.Object functionOptions) throws java.rmi.RemoteException;
+
+
+    public java.lang.Object addSender(java.lang.Object functionOptions) throws java.rmi.RemoteException;
+
+
+    public java.lang.Object deleteSender(java.lang.Object functionOptions) throws java.rmi.RemoteException;
+
+
+    public java.lang.Object editSender(java.lang.Object functionOptions) throws java.rmi.RemoteException;
+
+
+    public java.lang.Object getSubscriberActivity(java.lang.Object functionOptions) throws java.rmi.RemoteException;
+
+
+    public java.lang.Object addTag(java.lang.Object functionOptions) throws java.rmi.RemoteException;
+
+
+    public java.lang.Object attachTag(java.lang.Object functionOptions) throws java.rmi.RemoteException;
+
+
+    public java.lang.Object deleteTag(java.lang.Object functionOptions) throws java.rmi.RemoteException;
+
+
+    public java.lang.Object detachTag(java.lang.Object functionOptions) throws java.rmi.RemoteException;
+
+
+    public java.lang.Object getTags(java.lang.Object functionOptions) throws java.rmi.RemoteException;
 }
