@@ -12,7 +12,7 @@ public interface Egoi_Api_SoapPort extends java.rmi.Remote {
     /**
      * Testar o login
      */
-    public java.lang.Object checklogin(java.lang.Object functionOptions) throws java.rmi.RemoteException;
+    public java.lang.Object checkLogin(java.lang.Object functionOptions) throws java.rmi.RemoteException;
 
     /**
      * Obter as campanhas de um determinado cliente
@@ -244,7 +244,7 @@ public interface Egoi_Api_SoapPort extends java.rmi.Remote {
     public java.lang.Object getFormsSubmissions(java.lang.Object functionOptions) throws java.rmi.RemoteException;
 
 
-    public java.lang.Object getextrafields(java.lang.Object functionOptions) throws java.rmi.RemoteException;
+    public java.lang.Object getExtraFields(java.lang.Object functionOptions) throws java.rmi.RemoteException;
 
 
     public java.lang.Object generateAdvancedReport(java.lang.Object functionOptions) throws java.rmi.RemoteException;
