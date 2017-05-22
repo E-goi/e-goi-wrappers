@@ -1,12 +1,14 @@
 package com.egoi.api.wrapper.api;
 
-import java.util.HashMap;
+//import java.util.HashMap;
+import java.util.TreeMap;
 import java.util.Map;
 
 import com.egoi.api.wrapper.api.exceptions.EgoiException;
 
+
 @SuppressWarnings("serial")
-public class EgoiMap extends HashMap<String,Object > implements EgoiType {
+public class EgoiMap extends TreeMap<String,Object > implements EgoiType {
 	
 	public EgoiMap() {
 	}
