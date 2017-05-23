@@ -230,8 +230,8 @@ public class EgoiApiRestImpl extends AbstractRestEgoiApi {
     }
 
     @Override
-    public EgoiMapList getExtraFields(EgoiMap arguments) throws EgoiException {
-        return decodeResult("getExtraFields", arguments, EgoiMapList.class);
+    public EgoiMap getExtraFields(EgoiMap arguments) throws EgoiException {
+        return decodeResult("getExtraFields", arguments, EgoiMap.class);
     }
 
     @Override

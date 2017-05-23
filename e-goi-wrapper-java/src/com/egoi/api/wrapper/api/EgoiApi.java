@@ -207,7 +207,7 @@ public interface EgoiApi {
         /* (non-Javadoc)
 	 * @see https://api-docs.e-goi.com/index.html#getextrafields
 	 */
-	EgoiMapList getExtraFields(EgoiMap arguments) throws EgoiException;
+	EgoiMap getExtraFields(EgoiMap arguments) throws EgoiException;
         
         /* (non-Javadoc)
 	 * @see https://api-docs.e-goi.com/index.html#getlists
