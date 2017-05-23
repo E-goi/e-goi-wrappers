@@ -365,8 +365,8 @@ public class EgoiApiSoap extends AbstractEgoiApi {
     }
 
     @Override
-    public EgoiMapList getExtraFields(EgoiMap arguments) throws EgoiException {
-        try {return decodeResult(api.getExtraFields(arguments), EgoiMapList.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
+    public EgoiMap getExtraFields(EgoiMap arguments) throws EgoiException {
+        try {return decodeResult(api.getExtraFields(arguments), EgoiMap.class);} catch (RemoteException e) {throw new EgoiException(e.getMessage(), e);}
     }
 
     @Override

@@ -229,8 +229,8 @@ public class EgoiApiXmlRpcImpl extends AbstractXmlRpcEgoiApi {
     }
 
     @Override
-    public EgoiMapList getExtraFields(EgoiMap arguments) throws EgoiException {
-        return processRequest("getExtraFields", arguments, EgoiMapList.class);
+    public EgoiMap getExtraFields(EgoiMap arguments) throws EgoiException {
+        return processRequest("getExtraFields", arguments, EgoiMap.class);
     }
 
     @Override
