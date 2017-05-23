@@ -5,8 +5,10 @@
         <group>
             <file>file:/Users/manuelrocha/NetBeansProjects/e-goi-wrapper-java/src/com/egoi/api/wrapper/api/EgoiMap.java</file>
             <file>file:/Users/manuelrocha/NetBeansProjects/e-goi-wrapper-java/src/com/egoi/api/wrapper/impl/xmlrpc/EgoiApiXmlRpcImpl.java</file>
-            <file>file:/Users/manuelrocha/NetBeansProjects/e-goi-wrapper-java/src/com/egoi/api/wrapper/impl/AbstractEgoiApi.java</file>
+            <file>file:/Users/manuelrocha/NetBeansProjects/e-goi-wrapper-java/src/com/egoi/api/wrapper/impl/rest/EgoiApiRestImpl.java</file>
             <file>file:/Users/manuelrocha/NetBeansProjects/e-goi-wrapper-java/src/com/egoi/api/wrapper/impl/xmlrpc/AbstractXmlRpcEgoiApi.java</file>
+            <file>file:/Users/manuelrocha/NetBeansProjects/e-goi-wrapper-java/src/com/egoi/api/wrapper/impl/soap/EgoiApiSoap.java</file>
+            <file>file:/Users/manuelrocha/NetBeansProjects/e-goi-wrapper-java/src/com/egoi/api/wrapper/api/EgoiMapList.java</file>
             <file>file:/Users/manuelrocha/NetBeansProjects/e-goi-wrapper-java/src/com/egoi/api/wrapper/api/EgoiApi.java</file>
         </group>
     </open-files>

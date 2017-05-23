@@ -12,7 +12,7 @@ public interface EgoiApi {
         /* (non-Javadoc)
 	 * @see https://api-docs.e-goi.com/index.html#checklogin
 	 */
-	EgoiMap checklogin(EgoiMap arguments) throws EgoiException;
+	EgoiMap checkLogin(EgoiMap arguments) throws EgoiException;
         
         /* (non-Javadoc)
 	 * @see https://api-docs.e-goi.com/index.html#getclientdata
@@ -207,7 +207,7 @@ public interface EgoiApi {
         /* (non-Javadoc)
 	 * @see https://api-docs.e-goi.com/index.html#getextrafields
 	 */
-	EgoiMapList getextrafields(EgoiMap arguments) throws EgoiException;
+	EgoiMapList getExtraFields(EgoiMap arguments) throws EgoiException;
         
         /* (non-Javadoc)
 	 * @see https://api-docs.e-goi.com/index.html#getlists

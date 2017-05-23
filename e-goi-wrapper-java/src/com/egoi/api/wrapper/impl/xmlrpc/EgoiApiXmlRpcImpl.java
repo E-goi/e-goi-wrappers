@@ -38,8 +38,8 @@ public class EgoiApiXmlRpcImpl extends AbstractXmlRpcEgoiApi {
     }
 
     @Override
-    public EgoiMap checklogin(EgoiMap arguments) throws EgoiException {
-        return processRequest("checklogin", arguments, EgoiMap.class);
+    public EgoiMap checkLogin(EgoiMap arguments) throws EgoiException {
+        return processRequest("checkLogin", arguments, EgoiMap.class);
     }
 
     @Override
@@ -229,8 +229,8 @@ public class EgoiApiXmlRpcImpl extends AbstractXmlRpcEgoiApi {
     }
 
     @Override
-    public EgoiMapList getextrafields(EgoiMap arguments) throws EgoiException {
-        return processRequest("getextrafields", arguments, EgoiMapList.class);
+    public EgoiMapList getExtraFields(EgoiMap arguments) throws EgoiException {
+        return processRequest("getExtraFields", arguments, EgoiMapList.class);
     }
 
     @Override

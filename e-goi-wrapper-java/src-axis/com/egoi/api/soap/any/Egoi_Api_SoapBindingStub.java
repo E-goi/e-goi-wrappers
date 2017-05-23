@@ -30,7 +30,7 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
         org.apache.axis.description.OperationDesc oper;
         org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("checklogin");
+        oper.setName("checkLogin");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "functionOptions"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "anyType"), java.lang.Object.class, false, false);
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "anyType"));
@@ -615,7 +615,7 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
         _operations[51] = oper;*/
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getextrafields");
+        oper.setName("getExtraFields");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "functionOptions"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "anyType"), java.lang.Object.class, false, false);
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "anyType"));
@@ -819,7 +819,7 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
         }
     }
 
-    public java.lang.Object checklogin(java.lang.Object functionOptions) throws java.rmi.RemoteException {
+    public java.lang.Object checkLogin(java.lang.Object functionOptions) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -828,7 +828,7 @@ public class Egoi_Api_SoapBindingStub extends org.apache.axis.client.Stub implem
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("http://api.e-goi.com/v2/soap_any.php#checklogin");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://api.e-goi.com/v2/soap_any.php", "checklogin"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://api.e-goi.com/v2/soap_any.php", "checkLogin"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -2434,7 +2434,7 @@ public java.lang.Object deleteExtraField(java.lang.Object functionOptions) throw
         }
     }
      */
-    public java.lang.Object getextrafields(java.lang.Object functionOptions) throws java.rmi.RemoteException {
+    public java.lang.Object getExtraFields(java.lang.Object functionOptions) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -2443,7 +2443,7 @@ public java.lang.Object deleteExtraField(java.lang.Object functionOptions) throw
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("http://api.e-goi.com/v2/soap_any.php#getextrafields");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://api.e-goi.com/v2/soap_any.php", "getextrafields"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://api.e-goi.com/v2/soap_any.php", "getExtraFields"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
