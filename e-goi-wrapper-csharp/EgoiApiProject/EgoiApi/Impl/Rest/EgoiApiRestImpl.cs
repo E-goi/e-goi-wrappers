@@ -511,9 +511,9 @@ namespace Egoi
             return decodeMapResult("editSender", arguments);
         }
 
-        public EgoiMap editSubscriberActivity(EgoiMap arguments)
+        public EgoiMap getSubscriberActivity(EgoiMap arguments)
         {
-            return decodeMapResult("editSubscriberActivity", arguments);
+            return decodeMapResult("getSubscriberActivity", arguments);
         }
     }
 }

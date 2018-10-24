@@ -178,7 +178,7 @@ namespace Egoi
         [XmlRpcMethod("editSender")]
         object editSender(XmlRpcStruct o);
 
-        [XmlRpcMethod("editSubscriberActivity")]
-        object editSubscriberActivity(XmlRpcStruct o);
+        [XmlRpcMethod("getSubscriberActivity")]
+        object getSubscriberActivity(XmlRpcStruct o);
     }
 }

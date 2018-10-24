@@ -444,9 +444,9 @@ namespace Egoi
             return decodeResultMap(proxy.editSender(encodeMap(arguments)));
         }
 
-        public EgoiMap editSubscriberActivity(EgoiMap arguments)
+        public EgoiMap getSubscriberActivity(EgoiMap arguments)
         {
-            return decodeResultMap(proxy.editSubscriberActivity(encodeMap(arguments)));
+            return decodeResultMap(proxy.getSubscriberActivity(encodeMap(arguments)));
         }
         
     }

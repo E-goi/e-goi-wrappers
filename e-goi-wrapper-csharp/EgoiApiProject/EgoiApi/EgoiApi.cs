@@ -122,7 +122,7 @@ namespace Egoi
 
         EgoiMap editSubscriber(EgoiMap arguments);
 
-        EgoiMap editSubscriberActivity(EgoiMap arguments);
+        EgoiMap getSubscriberActivity(EgoiMap arguments);
         EgoiMap removeSubscriber(EgoiMap arguments);
 
         EgoiMapList subscriberData(EgoiMap arguments);
