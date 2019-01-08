@@ -195,8 +195,14 @@ namespace Egoi
             Dictionary<string, object> r2 = response["Egoi_Api"] as Dictionary<string, object>;
             Dictionary<string, object> map = r2[method] as Dictionary<string, object>;
 
-            if (map.ContainsKey("response"))
-                throw new EgoiException(EgoiException.idToMessage(map["response"] as string));
+            //IF ERROR EXIST
+            if (map.ContainsKey("ERROR"))
+                throw new EgoiException(EgoiException.idToMessage(map["ERROR"] as string));
+
+            //IF ERROR NOT EXIST AND RESPONSE NOT EXIST
+            if (!map.ContainsKey("response"))
+                throw new EgoiException(EgoiException.idToMessage(""));
+
 
             // Status not used
             map.Remove("status");
