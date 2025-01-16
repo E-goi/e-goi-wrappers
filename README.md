@@ -1,6 +1,8 @@
 Wrappers for the E-Goi API (DEPRECATED)
 =================================================
 
+This projectsis no longer supported, please consider using sdk projects instead.
+
 This projects contains the most common programming languages bindings for the [E-Goi Online API](http://www.e-goi.com/en/recursos/api/).
 
 **NOTE**: Reference implementation for all languages is *XmlRpc*
