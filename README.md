@@ -1,4 +1,4 @@
-Wrappers for the E-Goi API
+Wrappers for the E-Goi API (DEPRECATED)
 =================================================
 
 This projects contains the most common programming languages bindings for the [E-Goi Online API](http://www.e-goi.com/en/recursos/api/).
